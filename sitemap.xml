@@ -40,9 +40,22 @@
     </image:image>
   </url>
 
+  <!-- Master Services Page (Social Panga Inspired Integrated Hub) -->
+  <url>
+    <loc>https://disside.com/pages/services.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.98</priority>
+    <image:image>
+      <image:loc>https://disside.com/assets/images/logo/logo-big-disside-updated.jpg</image:loc>
+      <image:title>Creative Branding, Packaging Design &amp; Brand Strategy Services - Disside</image:title>
+      <image:caption>Full suite of creative branding, packaging architecture, visual identity, and scrollytelling web services by Disside</image:caption>
+    </image:image>
+  </url>
+
   <!-- Authority Pillar: Hyderabad Local Master Page -->
   <url>
-    <loc>https://disside.com/branding-agency-hyderabad.html</loc>
+    <loc>https://disside.com/pages/branding-agency-hyderabad.html</loc>
     <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -55,7 +68,7 @@
 
   <!-- Authority Pillar: Packaging Design Agency -->
   <url>
-    <loc>https://disside.com/packaging-design-agency-hyderabad.html</loc>
+    <loc>https://disside.com/pages/packaging-design-agency-hyderabad.html</loc>
     <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -73,7 +86,7 @@
 
   <!-- Authority Pillar: Brand Strategy & Corporate Identity -->
   <url>
-    <loc>https://disside.com/brand-strategy-agency-hyderabad.html</loc>
+    <loc>https://disside.com/pages/brand-strategy-agency-hyderabad.html</loc>
     <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
