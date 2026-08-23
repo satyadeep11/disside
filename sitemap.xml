@@ -62,6 +62,14 @@
     <priority>0.95</priority>
   </url>
 
+  <!-- Interactive Experience Lab: Inspire Scrollytelling -->
+  <url>
+    <loc>https://disside.com/pages/inspire.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.96</priority>
+  </url>
+
   <!-- Core Service Pillar: Corporate Rebranding -->
   <url>
     <loc>https://disside.com/pages/corporate-rebranding.html</loc>

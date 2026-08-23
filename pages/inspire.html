@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Inspire // Digital Scrollytelling Laboratory & Creative Tech — Disside Hyderabad</title>
+  <meta name="title" content="Inspire // Digital Scrollytelling Laboratory & Creative Tech — Disside Hyderabad">
+  <meta name="description" content="Explore Disside's interactive creative technology laboratory. Pinned scrollytelling, Three.js 3D kinetic typography, optical refractions, and cutting-edge digital experiences inspired by basement.studio.">
+  <meta name="keywords" content="Scrollytelling India, Interactive Web Design Hyderabad, Three.js Creative Studio, GSAP ScrollTrigger Agency, Creative Tech Laboratory India, Basement Studio Scrollytelling, Award Winning Websites Hyderabad">
+  <link rel="canonical" href="https://disside.com/pages/inspire.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://disside.com/pages/inspire.html">
+  <meta property="og:title" content="Inspire // Digital Scrollytelling Laboratory & Creative Tech — Disside">
+  <meta property="og:description" content="Experience the bleeding edge of scroll-driven narratives, Three.js 3D geometry, and kinetic digital design.">
+  <meta property="og:image" content="https://disside.com/assets/images/logo/logo-big-disside-updated.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../assets/images/logo/logo-big-disside-updated.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF4D00',
+              pink: '#FF007A',
+              purple: '#7928CA',
+              cyan: '#00DFD8',
+              lime: '#70FF00',
+              dark: '#030712',
+              card: '#0B0F19'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            display: ['Outfit', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          animation: {
+            'spin-slow': 'spin 20s linear infinite',
+            'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'scanline': 'scanline 8s linear infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-15px)' }
+            },
+            scanline: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(1000%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & Libraries -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../assets/css/index.css">
+
+  <style>
+    .glass-dark {
+      background: rgba(11, 15, 25, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .neon-border {
+      box-shadow: 0 0 25px -5px rgba(255, 77, 0, 0.3);
+    }
+    .text-stroke-white {
+      -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.8);
+      color: transparent;
+    }
+    .text-stroke-orange {
+      -webkit-text-stroke: 1.5px #FF4D00;
+      color: transparent;
+    }
+    .grid-bg-dark {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .twisted-text {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+    .terminal-glow {
+      text-shadow: 0 0 10px rgba(255, 77, 0, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- Top Announcement Bar -->
+  <header class="relative z-50 border-b border-slate-200/80 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between text-xs font-mono tracking-wider">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+        <span class="font-bold tracking-wide">DISSIDE HYDERABAD</span>
+        <span class="hidden sm:inline text-slate-500">|</span>
+        <span class="hidden sm:inline text-slate-300">Creative Branding Studio to Uber, Bambino, Supervek & FHD Group</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="hidden md:inline-flex items-center gap-1.5 text-slate-300">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-orange"></i> Hyderabad, India
+        </span>
+        <a href="brand-project-calculator.html" class="text-brand-orange hover:text-white transition-colors font-bold flex items-center gap-1">
+          <span>Brief Calculator</span>
+          <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+    <!-- Sticky Clean White Navigation -->
+  <nav id="main-nav" class="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md transition-all duration-300 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="../index.html" class="group flex items-center focus:outline-none" aria-label="Disside Homepage">
+        <img src="../assets/images/logo/logo-big-disside-updated.jpg" alt="Disside Branding Agency" class="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <div class="hidden lg:flex items-center gap-7 text-sm font-semibold tracking-normal text-slate-700">
+        <a href="../index.html#our-story" class="nav-link hover:text-brand-orange transition-colors">Our Story</a>
+
+        <!-- Services Dropdown (Interactive Hover Menu) -->
+        <div class="relative group py-6">
+          <a href="services.html" class="nav-link hover:text-brand-orange transition-colors flex items-center gap-1.5 focus:outline-none">
+            <span>Services</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-brand-orange group-hover:rotate-180 transition-transform duration-200"></i>
+          </a>
+
+          <!-- Dropdown Card (Stable Width & Layout) -->
+          <div class="absolute top-[76px] left-1/2 -translate-x-1/2 w-80 sm:w-96 max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+            <div class="space-y-1">
+              <a href="services.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-orange-50 border border-orange-200 flex items-center justify-center text-brand-orange flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="layers" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">All Creative Services</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Full capabilities overview</div>
+                </div>
+              </a>
+
+              <a href="brand-strategy-agency-hyderabad.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="compass" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Brand Strategy & Valuation</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Category creation & positioning</div>
+                </div>
+              </a>
+
+              <a href="visual-identity-design.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="type" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Visual Identity Systems</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Logo suite & 100+ page Brand Bible</div>
+                </div>
+              </a>
+
+              <a href="packaging-design-agency-hyderabad.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="package" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">FMCG Packaging Design</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Multi-SKU dielines & retail standout</div>
+                </div>
+              </a>
+
+              <a href="digital-scrollytelling-websites.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Digital Scrollytelling</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">60fps GSAP motion & WebGL</div>
+                </div>
+              </a>
+
+              <a href="inspire.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-orange-50 border border-orange-200 flex items-center justify-center text-brand-orange flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-brand-orange truncate">Inspire // Creative Tech Lab</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Basement-inspired 3D scrollytelling</div>
+                </div>
+              </a>
+
+              <a href="branding-agency-hyderabad.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Hyderabad Studio Hub</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">HITEC City, Jubilee Hills & Pan-India</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industries Dropdown (Stable Width & Layout) -->
+        <div class="relative group py-6">
+          <a href="services.html" class="nav-link hover:text-brand-orange transition-colors flex items-center gap-1.5 focus:outline-none">
+            <span>Industries</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-brand-orange group-hover:rotate-180 transition-transform duration-200"></i>
+          </a>
+
+          <div class="absolute top-[76px] left-1/2 -translate-x-1/2 w-80 sm:w-96 max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+            <div class="space-y-1">
+              <a href="fmcg-food-packaging-branding.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">FMCG & Food Brands</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Bambino, Cream Stone, Karma Kettle</div>
+                </div>
+              </a>
+
+              <a href="tech-saas-startup-branding.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="cpu" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Tech & SaaS Startups</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Sensomatic, Uber, Goldstone</div>
+                </div>
+              </a>
+
+              <a href="real-estate-architecture-branding.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="building" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Real Estate & Architecture</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">FHD Group, Organo Eco-Habitats</div>
+                </div>
+              </a>
+
+              <a href="d2c-fashion-luxury-branding.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="shirt" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">D2C & Luxury Lifestyle</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Supervek, Eclaire, Knot, Shian</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="inspire.html" class="nav-link hover:text-brand-orange transition-colors flex items-center gap-1.5 font-bold text-slate-800">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></span>
+          <span>Inspire</span>
+        </a>
+        <a href="../index.html#portfolio" class="nav-link hover:text-brand-orange transition-colors">Our Work</a>
+        <a href="../index.html#methodology" class="nav-link hover:text-brand-orange transition-colors">Methodology</a>
+        <a href="../index.html#faq" class="nav-link hover:text-brand-orange transition-colors">Insights</a>
+        <a href="#contact" class="nav-link hover:text-brand-orange transition-colors">Contact</a>
+      </div>
+
+      <!-- Header Action Buttons -->
+      <div class="flex items-center gap-3">
+        <!-- CTA Button -->
+        <a href="brand-project-calculator.html" class="relative group px-6 py-2.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase text-white bg-brand-orange hover:bg-slate-900 transition-all duration-300 shadow-md shadow-brand-orange/25 hover:shadow-slate-900/20 flex items-center gap-2">
+          <span>Start a Project</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Navigation Menu">
+          <i data-lucide="menu" class="w-6 h-6 menu-open-icon"></i>
+          <i data-lucide="x" class="w-6 h-6 menu-close-icon hidden"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-200 bg-white px-6 py-8 flex flex-col gap-6 shadow-xl max-h-[85vh] overflow-y-auto">
+      <div class="space-y-3">
+        <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Navigation</div>
+        <a href="../index.html#our-story" class="mobile-nav-link block text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Our Story</a>
+        <a href="inspire.html" class="mobile-nav-link block text-lg font-display font-bold text-brand-orange">Inspire // Creative Tech Lab</a>
+        <a href="../index.html#portfolio" class="mobile-nav-link block text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Our Work (16 Showcases)</a>
+        <a href="../index.html#methodology" class="mobile-nav-link block text-lg font-display font-bold text-slate-900 hover:text-brand-orange">4-D Methodology</a>
+        <a href="../index.html#faq" class="mobile-nav-link block text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Insights & FAQ</a>
+      </div>
+
+      <div class="pt-4 border-t border-slate-200 space-y-3">
+        <div class="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">Core Capabilities</div>
+        <a href="services.html" class="mobile-nav-link block text-sm font-semibold text-slate-800 hover:text-brand-orange">All Creative Services</a>
+        <a href="brand-strategy-agency-hyderabad.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Brand Strategy & Valuation</a>
+        <a href="visual-identity-design.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Visual Identity Systems</a>
+        <a href="packaging-design-agency-hyderabad.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">FMCG Packaging Architecture</a>
+        <a href="digital-scrollytelling-websites.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Digital Scrollytelling Websites</a>
+        <a href="inspire.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Inspire // Scrollytelling Lab</a>
+        <a href="corporate-rebranding.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Corporate Rebranding</a>
+        <a href="branding-agency-hyderabad.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Hyderabad Studio Hub</a>
+      </div>
+
+      <div class="pt-4 border-t border-slate-200 space-y-3">
+        <div class="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">Industry Hubs</div>
+        <a href="fmcg-food-packaging-branding.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">FMCG & Food Packaging</a>
+        <a href="tech-saas-startup-branding.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Tech & SaaS Startups</a>
+        <a href="real-estate-architecture-branding.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Real Estate & Architecture</a>
+        <a href="d2c-fashion-luxury-branding.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">D2C & Luxury Lifestyle</a>
+      </div>
+
+      <div class="pt-4 border-t border-slate-200 flex flex-col gap-3">
+        <a href="brand-project-calculator.html" class="w-full text-center py-3.5 rounded-xl bg-brand-orange text-white font-bold font-mono text-sm shadow-md">
+          Start Project / Brief Calculator
+        </a>
+        <a href="https://wa.me/919000139572" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 font-bold text-xs flex items-center justify-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-500"></i>
+          <span>WhatsApp Studio Direct</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================================================
+       HERO LABORATORY STAGE: HIGH-IMPACT NEO-MODERNIST
+       =================================================== -->
+  <section class="relative min-h-[92vh] flex flex-col justify-between overflow-hidden pt-12 pb-16 px-4 sm:px-6 lg:px-8 grid-bg-dark border-b border-slate-800">
+    
+    <!-- 3D Three.js Ambient Background Canvas -->
+    <div id="three-hero-canvas-wrap" class="absolute inset-0 z-0 opacity-80 pointer-events-none"></div>
+
+    <!-- Floating HUD Badges Top -->
+    <div class="relative z-10 max-w-7xl mx-auto w-full flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-slate-300 backdrop-blur-md shadow-lg">
+        <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
+        <span class="font-bold text-white tracking-widest uppercase">LABORATORY // EXPERIMENTAL ENGINE</span>
+      </div>
+
+      <div class="flex items-center gap-4 text-slate-400">
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="activity" class="w-3.5 h-3.5 text-brand-cyan"></i>
+          <span class="text-slate-300">FPS: <strong id="live-fps" class="text-white">60.0</strong></span>
+        </div>
+        <div class="hidden sm:flex items-center gap-1.5">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-brand-pink"></i>
+          <span>ENGINE: THREE.JS + GSAP 3</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="move-down" class="w-3.5 h-3.5 text-brand-orange animate-bounce"></i>
+          <span>SCROLL PROGRESS: <strong id="hero-scroll-pct" class="text-brand-orange font-bold">0%</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Hero Typography -->
+    <div class="relative z-10 max-w-7xl mx-auto w-full my-auto py-12 text-center sm:text-left space-y-6">
+      
+      <div class="inline-block font-mono text-xs sm:text-sm font-bold tracking-widest uppercase text-brand-orange px-3 py-1 rounded bg-brand-orange/10 border border-brand-orange/30">
+        // Disside Creative Technology Lab
+      </div>
+
+      <h1 class="font-display font-black text-4xl sm:text-7xl lg:text-8xl tracking-tight text-white uppercase leading-[0.95]">
+        MAKING THE <br>
+        <span class="text-stroke-white hover:text-white transition-colors duration-500">INTERNET</span> <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-pink to-brand-cyan">EXTRAORDINARY.</span>
+      </h1>
+
+      <p class="max-w-2xl text-slate-400 text-base sm:text-xl font-normal leading-relaxed">
+        We’re an ambitious studio working at the edge of performant, immersive digital scrollytelling experiences. Explore our interactive laboratory experiments, 3D kinetic text matrices, and custom visual shaders.
+      </p>
+
+      <!-- Terminal Command Copy Box -->
+      <div class="pt-4 flex flex-wrap items-center gap-4">
+        <div class="inline-flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-xs font-mono text-slate-200 shadow-xl">
+          <span class="text-brand-orange font-bold">$</span>
+          <code id="install-cmd">npm install @disside/scrollytelling-motion</code>
+          <button id="copy-cmd-btn" class="p-1.5 rounded-lg bg-slate-800 hover:bg-brand-orange hover:text-white text-slate-400 transition-colors" title="Copy Command">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <a href="#scrolly-pin-stage" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-orange hover:bg-white hover:text-slate-950 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-lg shadow-brand-orange/25">
+          <span>Enter Scrollytelling Chamber</span>
+          <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom HUD Stats -->
+    <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-900 text-xs font-mono text-slate-400">
+      <div>
+        <span class="text-slate-500 block uppercase text-[10px]">SCENE NODES</span>
+        <span class="text-white font-bold text-sm">4,096 PARTICLES</span>
+      </div>
+      <div>
+        <span class="text-slate-500 block uppercase text-[10px]">INTERACTION MODE</span>
+        <span class="text-white font-bold text-sm">SCRUBBED VELOCITY</span>
+      </div>
+      <div>
+        <span class="text-slate-500 block uppercase text-[10px]">FRAME RENDERING</span>
+        <span class="text-emerald-400 font-bold text-sm">HARDWARE ACCELERATED</span>
+      </div>
+      <div>
+        <span class="text-slate-500 block uppercase text-[10px]">INSPIRATION MATRIX</span>
+        <span class="text-brand-cyan font-bold text-sm">BASEMENT.STUDIO</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================================================
+       PINNED SCROLLYTELLING STAGE: 4-PHASE GSAP TIMELINE
+       =================================================== -->
+  <section id="scrolly-pin-stage" class="relative bg-black text-white border-b border-slate-800 overflow-hidden">
+    
+    <!-- Pinned Viewport Container -->
+    <div id="pin-viewport" class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+      
+      <!-- Interactive WebGL / 3D Canvas Background -->
+      <canvas id="scrolly-3d-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
+
+      <!-- HUD Top Center Step Tracker -->
+      <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-white/10 text-xs font-mono">
+        <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+        <span id="scrolly-step-label" class="font-bold tracking-widest text-slate-200">CHAPTER 01 // TWISTED 3D TEXT</span>
+      </div>
+
+      <!-- Phase 1: Twisted 3D Matrix Typography -->
+      <div id="phase-1" class="scrolly-phase absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
+        <div class="font-mono text-xs font-bold text-brand-orange uppercase tracking-widest mb-4">
+          // PHASE 01: PERSPECTIVE DISTORTION
+        </div>
+        <h2 id="twisted-heading" class="font-display font-black text-5xl sm:text-8xl lg:text-9xl tracking-tighter uppercase leading-none transition-transform duration-100">
+          TWISTED <br>
+          <span class="text-stroke-white hover:text-white">3D TEXT.</span>
+        </h2>
+        <p class="max-w-xl text-slate-400 text-sm sm:text-base mt-6 font-mono leading-relaxed">
+          Scroll-velocity mapped typography warping along a 3D Z-axis matrix with real-time perspective distortion.
+        </p>
+      </div>
+
+      <!-- Phase 2: Optical Refraction & Frosted Glass Shaders -->
+      <div id="phase-2" class="scrolly-phase absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center opacity-0 translate-y-20">
+        <div class="font-mono text-xs font-bold text-brand-cyan uppercase tracking-widest mb-4">
+          // PHASE 02: OPTICAL REFRACTION
+        </div>
+        <div class="p-8 sm:p-12 rounded-3xl glass-dark border border-brand-cyan/30 max-w-3xl shadow-2xl relative overflow-hidden group">
+          <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-brand-cyan/20 rounded-full blur-3xl"></div>
+          <h2 class="font-display font-black text-4xl sm:text-7xl tracking-tight text-white uppercase leading-none mb-4">
+            REFRACTION <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-purple">& CHROMATIC GLOSS</span>
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
+            High-index optical physics rendered at 60 frames per second. Subsurface light bending across dynamic glass surfaces that react to user gestures and scroll position.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 3: The 3D Spinning Vinyl / CD Hologram -->
+      <div id="phase-3" class="scrolly-phase absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center opacity-0 scale-75">
+        <div class="font-mono text-xs font-bold text-brand-pink uppercase tracking-widest mb-4">
+          // PHASE 03: 3D SPATIAL KINETICS
+        </div>
+        <h2 class="font-display font-black text-4xl sm:text-7xl lg:text-8xl tracking-tight text-white uppercase leading-none mb-6">
+          KINETIC <br>
+          <span class="text-brand-pink">HOLOGRAPHY.</span>
+        </h2>
+        <div class="max-w-md p-6 rounded-2xl glass-dark border border-white/10 text-xs font-mono text-slate-300 space-y-2">
+          <div class="flex justify-between">
+            <span class="text-slate-500">OBJECT ROTATION:</span>
+            <span id="live-rotation-val" class="text-brand-pink font-bold">0.00 RAD</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">SURFACE METALLIC:</span>
+            <span class="text-white font-bold">0.98 (IRIDESCENT)</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">DEPTH BUFFER:</span>
+            <span class="text-emerald-400 font-bold">ACTIVE (Z-PASS)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4: Fluid Grid Bump & Terrain Deformation -->
+      <div id="phase-4" class="scrolly-phase absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center opacity-0 translate-y-20">
+        <div class="font-mono text-xs font-bold text-brand-lime uppercase tracking-widest mb-4">
+          // PHASE 04: TOPOLOGICAL TERRAIN
+        </div>
+        <h2 class="font-display font-black text-5xl sm:text-8xl tracking-tight text-white uppercase leading-none mb-4">
+          GRID <span class="text-stroke-orange">BUMP.</span>
+        </h2>
+        <p class="max-w-xl text-slate-400 text-sm sm:text-base font-mono leading-relaxed">
+          Dynamic mathematical vertex shaders displacing a responsive wireframe grid in sync with page deceleration curves.
+        </p>
+        <div class="mt-8 flex items-center gap-4">
+          <a href="#lab-experiments" class="px-6 py-3 rounded-full bg-brand-orange text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-white hover:text-slate-950 transition-all">
+            Explore All Experiments
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Timeline Progress Bar -->
+      <div class="absolute bottom-6 left-8 right-8 z-20">
+        <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+          <div id="timeline-progress-fill" class="h-full bg-gradient-to-r from-brand-orange via-brand-pink to-brand-cyan w-0 transition-all duration-75"></div>
+        </div>
+        <div class="flex justify-between text-[11px] font-mono text-slate-500 mt-2">
+          <span>01 // TWISTED TYPE</span>
+          <span>02 // REFRACTION</span>
+          <span>03 // KINETICS</span>
+          <span>04 // GRID BUMP</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================================================
+       THE LABORATORY: INTERACTIVE EXPERIMENT VAULT
+       =================================================== -->
+  <section id="lab-experiments" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-950 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto space-y-16">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-800 pb-10">
+        <div>
+          <div class="font-mono text-xs font-bold text-brand-orange tracking-widest uppercase mb-2">
+            // FROM THE LABORATORY
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+            A Peek into the Bleeding Edge
+          </h2>
+        </div>
+        <p class="text-slate-400 max-w-md text-sm sm:text-base leading-relaxed">
+          Disside Lab carves out category leadership by combining intensive creative engineering with surgical aesthetic craft.
+        </p>
+      </div>
+
+      <!-- Interactive Experiments Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Experiment 1: Twisted 3D Typography -->
+        <div class="experiment-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-brand-orange p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-brand-orange/10">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>EXP // 001</span>
+              <span class="px-2.5 py-1 rounded-full bg-brand-orange/10 text-brand-orange font-bold">THREE.JS / GSAP</span>
+            </div>
+            <div class="h-48 rounded-2xl bg-black border border-slate-800 relative overflow-hidden flex items-center justify-center p-4">
+              <div id="interactive-text-demo" class="font-display font-black text-3xl text-slate-200 tracking-tighter uppercase transition-transform duration-200">
+                WARPED MATRIX
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white group-hover:text-brand-orange transition-colors">
+              Twisted 3D Typography Matrix
+            </h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Real-time quaternion rotational displacement of typography characters driven by cursor acceleration and scroll delta.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-500">AUTHOR: DISSIDE LABS</span>
+            <button class="text-brand-orange hover:text-white font-bold flex items-center gap-1 trigger-lab-exp" data-type="warp">
+              <span>Test Interactive</span>
+              <i data-lucide="play" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Experiment 2: Optical Refraction & Frosted Glass -->
+        <div class="experiment-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-brand-cyan p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-brand-cyan/10">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>EXP // 002</span>
+              <span class="px-2.5 py-1 rounded-full bg-brand-cyan/10 text-brand-cyan font-bold">GLSL SHADER</span>
+            </div>
+            <div class="h-48 rounded-2xl bg-gradient-to-tr from-cyan-950 via-slate-900 to-slate-950 border border-slate-800 relative overflow-hidden flex items-center justify-center p-4">
+              <div class="w-24 h-24 rounded-full bg-gradient-to-r from-brand-cyan to-brand-purple blur-xl animate-pulse"></div>
+              <div class="absolute inset-8 rounded-2xl glass-dark border border-white/20 flex items-center justify-center text-xs font-mono font-bold text-white shadow-xl">
+                REFRACT // 1.52
+              </div>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white group-hover:text-brand-cyan transition-colors">
+              Subsurface Refraction Lens
+            </h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Snell’s Law refraction shader computing transmission, chromatic aberration, and roughness dispersion in real time.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-500">AUTHOR: DISSIDE LABS</span>
+            <button class="text-brand-cyan hover:text-white font-bold flex items-center gap-1 trigger-lab-exp" data-type="refract">
+              <span>Test Interactive</span>
+              <i data-lucide="play" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Experiment 3: Morphing SVG Kinetic Gradients -->
+        <div class="experiment-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-brand-pink p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-brand-pink/10">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>EXP // 003</span>
+              <span class="px-2.5 py-1 rounded-full bg-brand-pink/10 text-brand-pink font-bold">KINETIC SVG</span>
+            </div>
+            <div class="h-48 rounded-2xl bg-black border border-slate-800 relative overflow-hidden flex items-center justify-center p-4">
+              <svg class="w-32 h-32 animate-spin-slow" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" stroke="url(#pink-grad)" stroke-width="6" fill="none" stroke-dasharray="180" stroke-linecap="round"/>
+                <defs>
+                  <linearGradient id="pink-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FF007A"/>
+                    <stop offset="100%" stop-color="#7928CA"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span class="absolute font-mono text-[11px] font-bold text-white">MORPH // 60FPS</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white group-hover:text-brand-pink transition-colors">
+              Morphing Fluid Vector Mesh
+            </h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Interpolated cubic Bezier paths creating living vector gradients with ultra-low CPU footprint and zero layout thrash.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-500">AUTHOR: DISSIDE LABS</span>
+            <button class="text-brand-pink hover:text-white font-bold flex items-center gap-1 trigger-lab-exp" data-type="morph">
+              <span>Test Interactive</span>
+              <i data-lucide="play" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Experiment 4: 3D Holographic CD / Product Showcase -->
+        <div class="experiment-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-brand-lime p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-brand-lime/10">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>EXP // 004</span>
+              <span class="px-2.5 py-1 rounded-full bg-brand-lime/10 text-brand-lime font-bold">THREE.JS PBR</span>
+            </div>
+            <div class="h-48 rounded-2xl bg-black border border-slate-800 relative overflow-hidden flex items-center justify-center p-4">
+              <div class="w-28 h-28 rounded-full border-4 border-dashed border-brand-lime/60 animate-spin-slow flex items-center justify-center">
+                <div class="w-8 h-8 rounded-full bg-brand-lime/20 border border-brand-lime"></div>
+              </div>
+              <span class="absolute font-mono text-[10px] uppercase font-bold text-slate-300 bg-slate-950/80 px-2 py-1 rounded">SPATIAL CD VINYL</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white group-hover:text-brand-lime transition-colors">
+              Iridescent 3D Disc Spatial Model
+            </h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Physically-based rendering (PBR) disc geometry displaying chromatic rainbow reflections and velocity physics.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-500">AUTHOR: DISSIDE LABS</span>
+            <button class="text-brand-lime hover:text-white font-bold flex items-center gap-1 trigger-lab-exp" data-type="disc">
+              <span>Test Interactive</span>
+              <i data-lucide="play" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Experiment 5: Topological Terrain & Wireframe Waveform -->
+        <div class="experiment-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-amber-400 p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-amber-400/10">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>EXP // 005</span>
+              <span class="px-2.5 py-1 rounded-full bg-amber-400/10 text-amber-400 font-bold">PERLIN NOISE</span>
+            </div>
+            <div class="h-48 rounded-2xl bg-black border border-slate-800 relative overflow-hidden flex items-center justify-center p-4">
+              <div class="w-full h-full flex items-center justify-center gap-1.5 opacity-70">
+                <span class="w-1.5 h-12 bg-amber-400 rounded-full animate-bounce"></span>
+                <span class="w-1.5 h-20 bg-amber-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></span>
+                <span class="w-1.5 h-32 bg-amber-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                <span class="w-1.5 h-16 bg-amber-400 rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+                <span class="w-1.5 h-24 bg-amber-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+              </div>
+              <span class="absolute font-mono text-[10px] uppercase font-bold text-white bg-slate-950/90 px-2.5 py-1 rounded border border-slate-800">PERLIN TERRAIN</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white group-hover:text-amber-400 transition-colors">
+              Dynamic Topographic Waveform
+            </h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Multi-octave Simplex & Perlin noise generators creating continuous undulating digital landscapes.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-500">AUTHOR: DISSIDE LABS</span>
+            <button class="text-amber-400 hover:text-white font-bold flex items-center gap-1 trigger-lab-exp" data-type="terrain">
+              <span>Test Interactive</span>
+              <i data-lucide="play" class="w-3 h-3"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Experiment 6: Scrollytelling Custom Engine -->
+        <div class="experiment-card group rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-brand-purple p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-brand-purple/10">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>EXP // 006</span>
+              <span class="px-2.5 py-1 rounded-full bg-brand-purple/10 text-brand-purple font-bold">FRAMEWORK</span>
+            </div>
+            <div class="h-48 rounded-2xl bg-black border border-slate-800 relative overflow-hidden flex flex-col justify-center p-6 font-mono text-xs text-brand-cyan space-y-1">
+              <div>&lt;<span class="text-brand-orange">ScrollyRoot</span>&gt;</div>
+              <div class="pl-4">&lt;<span class="text-brand-pink">Waypoint</span> at="0.45" /&gt;</div>
+              <div class="pl-4">&lt;<span class="text-brand-cyan">Animation</span> ease="power2" /&gt;</div>
+              <div>&lt;/<span class="text-brand-orange">ScrollyRoot</span>&gt;</div>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white group-hover:text-brand-purple transition-colors">
+              Declarative Scrolly Pipeline
+            </h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Component-based orchestration pipeline coordinating multi-stage camera timelines with zero render lag.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-500">AUTHOR: DISSIDE LABS</span>
+            <a href="digital-scrollytelling-websites.html" class="text-brand-purple hover:text-white font-bold flex items-center gap-1">
+              <span>View Web Pillar</span>
+              <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================
+       INTERACTIVE SCROLLYTELLING WORKBENCH / DEV CONTROLLER
+       =================================================== -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto space-y-10">
+      
+      <div class="text-center space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-xs font-mono font-bold uppercase">
+          <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
+          <span>INTERACTIVE PLAYGROUND</span>
+        </div>
+        <h2 class="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight">
+          Live Scrollytelling Workbench
+        </h2>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto">
+          Test the scrollytelling scrubbing engine in real time. Drag the playhead to simulate scroll-driven state changes across the 3D canvas.
+        </p>
+      </div>
+
+      <!-- Workbench Control Console -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-slate-950 border border-slate-800 shadow-2xl space-y-6">
+        
+        <!-- Live Scrubber Slider -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-400 font-bold uppercase">PLAYHEAD POSITION</span>
+            <span id="scrubber-pct" class="text-brand-orange font-bold">50% (FRAME 30/60)</span>
+          </div>
+          <input id="interactive-scrubber" type="range" min="0" max="100" value="50" class="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-brand-orange">
+        </div>
+
+        <!-- Preset Trigger Buttons -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-900 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-slate-500">PRESETS:</span>
+            <button class="preset-btn px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-brand-orange hover:text-white text-slate-300 border border-slate-800 transition-colors" data-val="0">0% Intro</button>
+            <button class="preset-btn px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-brand-orange hover:text-white text-slate-300 border border-slate-800 transition-colors" data-val="33">33% Warp</button>
+            <button class="preset-btn px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-brand-orange hover:text-white text-slate-300 border border-slate-800 transition-colors" data-val="66">66% Glass</button>
+            <button class="preset-btn px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-brand-orange hover:text-white text-slate-300 border border-slate-800 transition-colors" data-val="100">100% Finale</button>
+          </div>
+
+          <button id="auto-play-toggle" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg bg-brand-orange text-white font-bold transition-transform active:scale-95">
+            <i data-lucide="play" class="w-3.5 h-3.5 play-icon"></i>
+            <span class="play-text">Auto Play Sequence</span>
+          </button>
+        </div>
+
+        <!-- Code Snippet Viewer -->
+        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-300 space-y-2 overflow-x-auto">
+          <div class="text-slate-500">// GSAP ScrollTrigger Integration</div>
+          <div class="text-emerald-400">gsap.timeline({ scrollTrigger: { trigger: '#pin-viewport', pin: true, scrub: 1 } })</div>
+          <div class="pl-4 text-brand-orange">.to(mesh.rotation, { x: Math.PI * 2, y: Math.PI * 2 })</div>
+          <div class="pl-4 text-brand-cyan">.to(camera.position, { z: 4.5, ease: 'power2.inOut' }, 0);</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================
+       CONVERSION CTA: LAUNCH YOUR VISIONARY EXPERIENCE
+       =================================================== -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-950 text-white relative overflow-hidden">
+    
+    <div class="absolute inset-0 grid-bg-dark opacity-30"></div>
+    <div class="absolute -left-40 top-1/2 -translate-y-1/2 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -right-40 top-1/2 -translate-y-1/2 w-96 h-96 bg-brand-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+      
+      <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 font-mono text-xs font-bold uppercase tracking-widest text-brand-orange">
+        BUILD THE FUTURE WITH US
+      </span>
+
+      <h2 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white uppercase leading-none">
+        Ready to Build an <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-pink to-brand-cyan">Unforgettable Website?</span>
+      </h2>
+
+      <p class="text-slate-400 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed">
+        Let’s elevate your brand beyond generic templates into an award-winning, interactive digital scrollytelling experience.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <a href="brand-project-calculator.html" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-orange hover:bg-white hover:text-slate-950 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xl shadow-brand-orange/25 flex items-center justify-center gap-2">
+          <span>Calculate Project Scope</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="https://wa.me/919000139572" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-full glass-dark hover:bg-white/10 border border-slate-700 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+          <span>Direct Studio Line</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+    <!-- ===================================================
+       FOOTER & SEO SITEMAP DIRECTORY (CLEAN LIGHT/DARK)
+       =================================================== -->
+  <footer id="contact" class="relative z-10 border-t border-slate-200 bg-white pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-slate-200">
+        
+        <!-- Brand Col -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="../index.html" class="inline-block" aria-label="Disside Home">
+            <img src="../assets/images/logo/logo-big-disside-updated.jpg" alt="Disside Branding Agency" class="h-9 sm:h-10 w-auto object-contain">
+          </a>
+          <p class="text-slate-600 text-sm leading-relaxed max-w-sm">
+            Hyderabad’s premier branding and creative strategy studio. Architecting category-defining visual identities, luxury packaging, and digital scrollytelling experiences across India and global markets.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-slate-700">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/disside" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full border border-slate-300 hover:border-brand-orange hover:text-white hover:bg-brand-orange text-slate-700 transition-all shadow-sm flex items-center justify-center" aria-label="Facebook">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/disside" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full border border-slate-300 hover:border-brand-orange hover:text-white hover:bg-brand-orange text-slate-700 transition-all shadow-sm flex items-center justify-center" aria-label="Instagram">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://twitter.com/disside" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full border border-slate-300 hover:border-brand-orange hover:text-white hover:bg-brand-orange text-slate-700 transition-all shadow-sm flex items-center justify-center" aria-label="Twitter">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/company/disside-design-studio/" target="_blank" rel="noopener noreferrer" class="p-3 rounded-full border border-slate-300 hover:border-brand-orange hover:text-white hover:bg-brand-orange text-slate-700 transition-all shadow-sm flex items-center justify-center" aria-label="LinkedIn">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- SEO Services Col -->
+        <div>
+          <h4 class="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">Core Capabilities</h4>
+          <ul class="space-y-2 text-sm text-slate-600 font-medium">
+            <li><a href="services.html" class="text-brand-orange font-bold hover:underline transition-colors">All Creative Services</a></li>
+            <li><a href="brand-strategy-agency-hyderabad.html" class="hover:text-brand-orange transition-colors">Brand Strategy & Positioning</a></li>
+            <li><a href="visual-identity-design.html" class="hover:text-brand-orange transition-colors">Visual Identity Systems</a></li>
+            <li><a href="packaging-design-agency-hyderabad.html" class="hover:text-brand-orange transition-colors">FMCG Packaging Architecture</a></li>
+            <li><a href="digital-scrollytelling-websites.html" class="hover:text-brand-orange transition-colors">Digital Scrollytelling Websites</a></li>
+            <li><a href="inspire.html" class="text-brand-orange font-bold hover:underline transition-colors flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span><span>Inspire Scrollytelling Lab</span></a></li>
+            <li><a href="corporate-rebranding.html" class="hover:text-brand-orange transition-colors">Corporate Rebranding</a></li>
+          </ul>
+        </div>
+
+        <!-- Industry Hubs Col -->
+        <div>
+          <h4 class="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">Industry Verticals</h4>
+          <ul class="space-y-2 text-sm text-slate-600 font-medium">
+            <li><a href="fmcg-food-packaging-branding.html" class="hover:text-brand-orange transition-colors">FMCG & Food Brands</a></li>
+            <li><a href="tech-saas-startup-branding.html" class="hover:text-brand-orange transition-colors">Tech & SaaS Startups</a></li>
+            <li><a href="real-estate-architecture-branding.html" class="hover:text-brand-orange transition-colors">Real Estate & Architecture</a></li>
+            <li><a href="d2c-fashion-luxury-branding.html" class="hover:text-brand-orange transition-colors">D2C & Luxury Lifestyle</a></li>
+            <li><a href="branding-agency-hyderabad.html" class="text-brand-orange font-bold hover:underline transition-colors">Hyderabad Studio Hub</a></li>
+          </ul>
+        </div>
+
+        <!-- Case Studies Col -->
+        <div>
+          <h4 class="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">Featured Clients</h4>
+          <ul class="space-y-2 text-sm text-slate-600 font-medium">
+            <li><button class="open-case-study-btn hover:text-brand-orange transition-colors text-left" data-id="uber">Uber Hyderabad City Launch</button></li>
+            <li><button class="open-case-study-btn hover:text-brand-orange transition-colors text-left" data-id="supervek">Supervek x Jägermeister</button></li>
+            <li><button class="open-case-study-btn hover:text-brand-orange transition-colors text-left" data-id="bambino">Bambino FMCG Packaging</button></li>
+            <li><button class="open-case-study-btn hover:text-brand-orange transition-colors text-left" data-id="organo">Organo Eco-Habitats</button></li>
+            <li><button class="open-case-study-btn hover:text-brand-orange transition-colors text-left" data-id="cream-stone">Cream Stone Confectionery</button></li>
+            <li><button class="open-case-study-btn hover:text-brand-orange transition-colors text-left" data-id="fhd-group">FHD Group Architecture</button></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Footer & SEO Tags -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-4">
+        <div>
+          Disside Design Studio. Made in Hyderabad, India.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../index.html#our-story" class="hover:text-slate-800 transition-colors">Privacy Policy</a>
+          <a href="../index.html#our-story" class="hover:text-slate-800 transition-colors">Terms of Service</a>
+          <a href="../sitemap.xml" class="hover:text-brand-orange transition-colors">XML Sitemap</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ===================================================
+       CASE STUDY MODAL DIALOG CONTAINER
+       =================================================== -->
+  <div id="case-study-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fadeIn">
+    <div class="relative w-full max-w-5xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50 sticky top-0 z-20">
+        <div>
+          <span id="modal-client-badge" class="px-3 py-1 rounded-full bg-brand-orange text-white text-xs font-bold uppercase tracking-wider">CLIENT</span>
+          <span id="modal-category" class="ml-2 text-xs font-mono font-bold text-slate-500">CATEGORY</span>
+        </div>
+        <button id="modal-close-btn" class="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-600 hover:text-slate-950 hover:bg-slate-100 flex items-center justify-center transition-all focus:outline-none" aria-label="Close Modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 sm:p-10 overflow-y-auto space-y-8 flex-1">
+        
+        <div>
+          <h2 id="modal-title" class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Case Title</h2>
+          <p id="modal-lead" class="text-base sm:text-lg text-slate-600 mt-2 font-normal leading-relaxed">Lead paragraph</p>
+        </div>
+
+        <!-- Video Player Wrap (Conditional) -->
+        <div id="modal-video-wrap" class="hidden rounded-2xl overflow-hidden bg-black border border-slate-800 shadow-xl aspect-video">
+          <video id="modal-video-player" class="w-full h-full object-cover" controls playsinline preload="metadata">
+            <source src="../assets/images/supervek/KeepPushing-Supervek-x-Jagermeister.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Project Details Block -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 rounded-2xl bg-slate-50 border border-slate-200 text-sm">
+          <div>
+            <span class="block text-xs font-mono font-bold text-slate-400 uppercase">TIMELINE</span>
+            <span id="modal-timeline" class="font-bold text-slate-900">4 to 6 Weeks</span>
+          </div>
+          <div>
+            <span class="block text-xs font-mono font-bold text-slate-400 uppercase">DELIVERABLE SCOPE</span>
+            <span id="modal-scope" class="font-bold text-slate-900">Brand Architecture</span>
+          </div>
+          <div>
+            <span class="block text-xs font-mono font-bold text-slate-400 uppercase">IMPACT</span>
+            <span id="modal-metric-1" class="font-bold text-brand-orange">Category Leadership</span>
+          </div>
+        </div>
+
+        <!-- Modal CTA Footer -->
+        <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-slate-900">Ready to build your distinctive brand?</h4>
+            <p class="text-xs text-slate-500">Book an initial strategy consultation with our studio team.</p>
+          </div>
+          <a href="#calculator" class="w-full sm:w-auto px-6 py-3 rounded-full bg-brand-orange text-white text-xs font-bold uppercase tracking-wider hover:bg-orange-600 transition-all text-center">
+            Estimate Project Scope
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+  <!-- Main App Script -->
+  <script src="../assets/js/app.js"></script>
+
+  <!-- ===================================================
+       THREE.JS & GSAP SCROLLYTELLING ENGINE SCRIPT
+       =================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Lucide Icons
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+
+      // Copy Command Button
+      const copyBtn = document.getElementById('copy-cmd-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const cmd = document.getElementById('install-cmd').innerText;
+          navigator.clipboard.writeText(cmd).then(() => {
+            copyBtn.innerHTML = '<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>';
+            if (window.lucide) lucide.createIcons();
+            setTimeout(() => {
+              copyBtn.innerHTML = '<i data-lucide="copy" class="w-3.5 h-3.5"></i>';
+              if (window.lucide) lucide.createIcons();
+            }, 2000);
+          });
+        });
+      }
+
+      // Live FPS Counter
+      let lastTime = performance.now();
+      let frameCount = 0;
+      const fpsEl = document.getElementById('live-fps');
+      const updateFPS = () => {
+        frameCount++;
+        const now = performance.now();
+        if (now - lastTime >= 1000) {
+          const fps = ((frameCount * 1000) / (now - lastTime)).toFixed(1);
+          if (fpsEl) fpsEl.textContent = fps;
+          frameCount = 0;
+          lastTime = now;
+        }
+        requestAnimationFrame(updateFPS);
+      };
+      requestAnimationFrame(updateFPS);
+
+      // Hero Scroll Progress
+      window.addEventListener('scroll', () => {
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = Math.min(100, Math.max(0, Math.round((window.scrollY / (h || 1)) * 100)));
+        const scrollPctEl = document.getElementById('hero-scroll-pct');
+        if (scrollPctEl) scrollPctEl.textContent = `${pct}%`;
+      }, { passive: true });
+
+      // ==========================================
+      // THREE.JS 3D SCROLLYTELLING STAGE SETUP
+      // ==========================================
+      const canvas = document.getElementById('scrolly-3d-canvas');
+      if (!canvas || typeof THREE === 'undefined') return;
+
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x000000, 0.12);
+
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 6;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      scene.add(ambientLight);
+
+      const pointLight1 = new THREE.PointLight(0xFF4D00, 3, 50);
+      pointLight1.position.set(5, 5, 5);
+      scene.add(pointLight1);
+
+      const pointLight2 = new THREE.PointLight(0x00DFD8, 2.5, 50);
+      pointLight2.position.set(-5, -5, 3);
+      scene.add(pointLight2);
+
+      // 1. Central 3D Icosahedron Hologram (Morphs on scroll)
+      const geometry = new THREE.IcosahedronGeometry(2, 2);
+      const wireMat = new THREE.MeshStandardMaterial({
+        color: 0xFF4D00,
+        wireframe: true,
+        emissive: 0x331000,
+        roughness: 0.2,
+        metalness: 0.9
+      });
+      const solidMat = new THREE.MeshPhysicalMaterial({
+        color: 0x050510,
+        metalness: 0.9,
+        roughness: 0.1,
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.1,
+        transmission: 0.6,
+        ior: 1.5,
+        transparent: true,
+        opacity: 0.85
+      });
+      const icosahedron = new THREE.Mesh(geometry, wireMat);
+      scene.add(icosahedron);
+
+      // 2. Floating Kinetic Ring / Vinyl Disc
+      const ringGeo = new THREE.TorusGeometry(3.2, 0.08, 16, 100);
+      const ringMat = new THREE.MeshStandardMaterial({ color: 0xFF007A, metalness: 0.9, roughness: 0.1 });
+      const ring = new THREE.Mesh(ringGeo, ringMat);
+      ring.rotation.x = Math.PI / 3;
+      scene.add(ring);
+
+      // 3. Floating Particle Cloud
+      const partCount = 500;
+      const partGeo = new THREE.BufferGeometry();
+      const partPos = new Float32Array(partCount * 3);
+      for (let i = 0; i < partCount * 3; i += 3) {
+        partPos[i] = (Math.random() - 0.5) * 20;
+        partPos[i + 1] = (Math.random() - 0.5) * 20;
+        partPos[i + 2] = (Math.random() - 0.5) * 15;
+      }
+      partGeo.setAttribute('position', new THREE.BufferAttribute(partPos, 3));
+      const partMat = new THREE.PointsMaterial({ size: 0.04, color: 0x00DFD8, transparent: true, opacity: 0.7 });
+      const particles = new THREE.Points(partGeo, partMat);
+      scene.add(particles);
+
+      // Animation Loop
+      let scrollProgress = 0;
+      const rotationValEl = document.getElementById('live-rotation-val');
+
+      const animate = () => {
+        requestAnimationFrame(animate);
+
+        // Idle rotation + scroll-driven rotation
+        icosahedron.rotation.x += 0.003;
+        icosahedron.rotation.y += 0.005;
+        ring.rotation.z += 0.008;
+        particles.rotation.y -= 0.001;
+
+        if (rotationValEl) {
+          rotationValEl.textContent = `${(icosahedron.rotation.y % (Math.PI * 2)).toFixed(2)} RAD`;
+        }
+
+        renderer.render(scene, camera);
+      };
+      animate();
+
+      // Window Resize
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      // ==========================================
+      // GSAP SCROLLTRIGGER PINNED TIMELINE
+      // ==========================================
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const phase1 = document.getElementById('phase-1');
+        const phase2 = document.getElementById('phase-2');
+        const phase3 = document.getElementById('phase-3');
+        const phase4 = document.getElementById('phase-4');
+        const stepLabel = document.getElementById('scrolly-step-label');
+        const progressFill = document.getElementById('timeline-progress-fill');
+        const twistedHead = document.getElementById('twisted-heading');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#scrolly-pin-stage',
+            start: 'top top',
+            end: '+=3500',
+            pin: '#pin-viewport',
+            scrub: 1,
+            onUpdate: (self) => {
+              scrollProgress = self.progress;
+              if (progressFill) progressFill.style.width = `${self.progress * 100}%`;
+
+              // 3D camera & object transformations mapped to scroll progress
+              camera.position.z = 6 - self.progress * 2.5;
+              icosahedron.rotation.x = self.progress * Math.PI * 4;
+              icosahedron.rotation.y = self.progress * Math.PI * 3;
+              ring.rotation.x = (Math.PI / 3) + self.progress * Math.PI * 2;
+              ring.scale.setScalar(1 + self.progress * 0.8);
+
+              // Update step label
+              if (stepLabel) {
+                if (self.progress < 0.25) {
+                  stepLabel.textContent = 'CHAPTER 01 // TWISTED 3D TEXT';
+                } else if (self.progress < 0.55) {
+                  stepLabel.textContent = 'CHAPTER 02 // REFRACTION & GLOSS';
+                } else if (self.progress < 0.80) {
+                  stepLabel.textContent = 'CHAPTER 03 // 3D KINETIC HOLOGRAPHY';
+                } else {
+                  stepLabel.textContent = 'CHAPTER 04 // GRID BUMP & TOPOLOGY';
+                }
+              }
+            }
+          }
+        });
+
+        // Step 1 -> 2
+        tl.to(phase1, { opacity: 0, scale: 0.85, y: -40, duration: 1 })
+          .to(phase2, { opacity: 1, y: 0, duration: 1 }, '-=0.5')
+          .to(icosahedron.scale, { x: 1.4, y: 1.4, z: 1.4, duration: 1 }, '-=1')
+
+        // Step 2 -> 3
+          .to(phase2, { opacity: 0, scale: 0.85, y: -40, duration: 1 })
+          .to(phase3, { opacity: 1, scale: 1, duration: 1 }, '-=0.5')
+          .to(ring.scale, { x: 1.6, y: 1.6, z: 1.6, duration: 1 }, '-=1')
+
+        // Step 3 -> 4
+          .to(phase3, { opacity: 0, scale: 0.85, y: -40, duration: 1 })
+          .to(phase4, { opacity: 1, y: 0, duration: 1 }, '-=0.5');
+
+        // Mouse Parallax on Phase 1 Twisted Text
+        window.addEventListener('mousemove', (e) => {
+          const xNorm = (e.clientX / window.innerWidth - 0.5) * 2;
+          const yNorm = (e.clientY / window.innerHeight - 0.5) * 2;
+          if (twistedHead) {
+            twistedHead.style.transform = `rotateY(${xNorm * 18}deg) rotateX(${-yNorm * 18}deg)`;
+          }
+        });
+      }
+
+      // ==========================================
+      // WORKBENCH INTERACTIVE SCRUBBER CONTROLLER
+      // ==========================================
+      const scrubber = document.getElementById('interactive-scrubber');
+      const scrubberPct = document.getElementById('scrubber-pct');
+      const presetBtns = document.querySelectorAll('.preset-btn');
+      const autoPlayBtn = document.getElementById('auto-play-toggle');
+      let isAutoPlaying = false;
+      let autoPlayInterval = null;
+
+      const applyScrub = (val) => {
+        if (scrubber) scrubber.value = val;
+        if (scrubberPct) scrubberPct.textContent = `${val}% (FRAME ${Math.round((val/100)*60)}/60)`;
+        
+        // Transform icosahedron directly
+        if (icosahedron) {
+          icosahedron.rotation.y = (val / 100) * Math.PI * 4;
+          icosahedron.rotation.x = (val / 100) * Math.PI * 2;
+          icosahedron.scale.setScalar(1 + (val / 100) * 0.6);
+        }
+      };
+
+      if (scrubber) {
+        scrubber.addEventListener('input', (e) => {
+          applyScrub(e.target.value);
+        });
+      }
+
+      presetBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const v = parseInt(btn.getAttribute('data-val'), 10);
+          applyScrub(v);
+        });
+      });
+
+      if (autoPlayBtn) {
+        autoPlayBtn.addEventListener('click', () => {
+          isAutoPlaying = !isAutoPlaying;
+          const playText = autoPlayBtn.querySelector('.play-text');
+          const playIcon = autoPlayBtn.querySelector('.play-icon');
+
+          if (isAutoPlaying) {
+            if (playText) playText.textContent = 'Pause Simulation';
+            autoPlayInterval = setInterval(() => {
+              let cur = parseInt(scrubber.value, 10);
+              cur = (cur + 1) % 101;
+              applyScrub(cur);
+            }, 30);
+          } else {
+            if (playText) playText.textContent = 'Auto Play Sequence';
+            clearInterval(autoPlayInterval);
+          }
+        });
+      }
+
+      // ==========================================
+      // EXPERIMENT CARDS LIVE TRIGGER FEEDBACK
+      // ==========================================
+      const expTriggers = document.querySelectorAll('.trigger-lab-exp');
+      expTriggers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const type = btn.getAttribute('data-type');
+          if (type === 'warp' && icosahedron) {
+            gsap.to(icosahedron.rotation, { y: icosahedron.rotation.y + Math.PI * 2, duration: 1.2, ease: 'back.out(2)' });
+          } else if (type === 'refract') {
+            gsap.to(pointLight2, { intensity: 8, duration: 0.3, yoyo: true, repeat: 3 });
+          } else if (type === 'morph' && ring) {
+            gsap.to(ring.scale, { x: 2, y: 2, z: 2, duration: 0.6, yoyo: true, repeat: 1 });
+          } else if (type === 'disc' && ring) {
+            gsap.to(ring.rotation, { z: ring.rotation.z + Math.PI * 4, duration: 1.5, ease: 'power3.out' });
+          } else if (type === 'terrain' && particles) {
+            gsap.to(particles.rotation, { x: particles.rotation.x + Math.PI, duration: 1.5 });
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>
