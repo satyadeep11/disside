@@ -22,8 +22,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Path to your web root (usually 'public_html/' or 'htdocs/')
-          server-dir: ${{ secrets.FTP_SERVER_DIR || 'public_html/' }}
+          # Destination directory on web server root
+          server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
           protocol: ftps
           dangerous-clean-slate: false
           exclude: |
