@@ -855,12 +855,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  openCaseStudyBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
+  // Open case study when clicking buttons or anywhere on a client card
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.open-case-study-btn, .portfolio-card[data-id], .client-card[data-id], [data-case-id], [data-case-card][data-id]');
+    if (!trigger) return;
+
+    // If user clicked a direct external link or navigation anchor, allow normal navigation
+    const isExternalNav = e.target.closest('a[href]:not([href="#"]):not([href="javascript:void(0)"])');
+    if (isExternalNav && !isExternalNav.classList.contains('open-case-study-btn')) {
+      return;
+    }
+
+    const caseId = trigger.getAttribute('data-id') || trigger.getAttribute('data-case-id');
+    if (caseId) {
+      e.preventDefault();
       e.stopPropagation();
-      const caseId = btn.getAttribute('data-id');
       openCaseStudy(caseId);
-    });
+    }
   });
 
   if (openHeroReelBtn) {

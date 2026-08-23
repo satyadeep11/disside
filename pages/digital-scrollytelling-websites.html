@@ -93,7 +93,7 @@
 
 <body class="bg-white text-slate-800 antialiased selection:bg-brand-orange selection:text-white">
 
-    <!-- Top Announcement Bar -->
+      <!-- Top Announcement Bar -->
   <header class="relative z-50 border-b border-slate-200/80 bg-slate-900 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between text-xs font-mono tracking-wider">
       <div class="flex items-center gap-2">
@@ -114,7 +114,7 @@
     </div>
   </header>
 
-    <!-- Sticky Clean White Navigation -->
+      <!-- Sticky Clean White Navigation -->
   <nav id="main-nav" class="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md transition-all duration-300 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
@@ -134,16 +134,16 @@
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-brand-orange group-hover:rotate-180 transition-transform duration-200"></i>
           </a>
 
-          <!-- Dropdown Card -->
-          <div class="absolute top-[76px] left-1/2 -translate-x-1/2 w-88 bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+          <!-- Dropdown Card (Stable Width & Layout) -->
+          <div class="absolute top-[76px] left-1/2 -translate-x-1/2 w-80 sm:w-96 max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
             <div class="space-y-1">
               <a href="services.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
                 <div class="w-8 h-8 rounded-lg bg-orange-50 border border-orange-200 flex items-center justify-center text-brand-orange flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="layers" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">All Creative Services</div>
-                  <div class="text-[11px] text-slate-500 font-normal">Full capabilities overview</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">All Creative Services</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Full capabilities overview</div>
                 </div>
               </a>
 
@@ -151,9 +151,9 @@
                 <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="compass" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">Brand Strategy & Valuation</div>
-                  <div class="text-[11px] text-slate-500 font-normal">Category creation & positioning</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Brand Strategy & Valuation</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Category creation & positioning</div>
                 </div>
               </a>
 
@@ -161,9 +161,9 @@
                 <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="type" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">Visual Identity Systems</div>
-                  <div class="text-[11px] text-slate-500 font-normal">Logo suite & 100+ page Brand Bible</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Visual Identity Systems</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Logo suite & 100+ page Brand Bible</div>
                 </div>
               </a>
 
@@ -171,9 +171,9 @@
                 <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="package" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">FMCG Packaging Design</div>
-                  <div class="text-[11px] text-slate-500 font-normal">Multi-SKU dielines & retail standout</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">FMCG Packaging Design</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Multi-SKU dielines & retail standout</div>
                 </div>
               </a>
 
@@ -181,9 +181,9 @@
                 <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="sparkles" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">Digital Scrollytelling</div>
-                  <div class="text-[11px] text-slate-500 font-normal">60fps GSAP motion & WebGL</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Digital Scrollytelling</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">60fps GSAP motion & WebGL</div>
                 </div>
               </a>
 
@@ -191,31 +191,31 @@
                 <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="map-pin" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">Hyderabad Studio Hub</div>
-                  <div class="text-[11px] text-slate-500 font-normal">HITEC City, Jubilee Hills & Pan-India</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Hyderabad Studio Hub</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">HITEC City, Jubilee Hills & Pan-India</div>
                 </div>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Industries Dropdown -->
+        <!-- Industries Dropdown (Stable Width & Layout) -->
         <div class="relative group py-6">
           <a href="services.html" class="nav-link hover:text-brand-orange transition-colors flex items-center gap-1.5 focus:outline-none">
             <span>Industries</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-brand-orange group-hover:rotate-180 transition-transform duration-200"></i>
           </a>
 
-          <div class="absolute top-[76px] left-1/2 -translate-x-1/2 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+          <div class="absolute top-[76px] left-1/2 -translate-x-1/2 w-80 sm:w-96 max-w-[90vw] bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
             <div class="space-y-1">
               <a href="fmcg-food-packaging-branding.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
                 <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">FMCG & Food Brands</div>
-                  <div class="text-[11px] text-slate-500 font-normal">Bambino, Cream Stone, Karma Kettle</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">FMCG & Food Brands</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Bambino, Cream Stone, Karma Kettle</div>
                 </div>
               </a>
 
@@ -223,9 +223,9 @@
                 <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="cpu" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">Tech & SaaS Startups</div>
-                  <div class="text-[11px] text-slate-500 font-normal">Sensomatic, Uber, Goldstone</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Tech & SaaS Startups</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Sensomatic, Uber, Goldstone</div>
                 </div>
               </a>
 
@@ -233,9 +233,9 @@
                 <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="building" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">Real Estate & Architecture</div>
-                  <div class="text-[11px] text-slate-500 font-normal">FHD Group, Organo Eco-Habitats</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">Real Estate & Architecture</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">FHD Group, Organo Eco-Habitats</div>
                 </div>
               </a>
 
@@ -243,9 +243,9 @@
                 <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
                   <i data-lucide="shirt" class="w-4 h-4"></i>
                 </div>
-                <div>
-                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">D2C & Luxury Lifestyle</div>
-                  <div class="text-[11px] text-slate-500 font-normal">Supervek, Eclaire, Knot, Shian</div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors truncate">D2C & Luxury Lifestyle</div>
+                  <div class="text-[11px] text-slate-500 font-normal truncate">Supervek, Eclaire, Knot, Shian</div>
                 </div>
               </a>
             </div>
@@ -489,7 +489,7 @@
     </div>
   </section>
 
-    <!-- ===================================================
+      <!-- ===================================================
        FOOTER & SEO SITEMAP DIRECTORY (CLEAN LIGHT/DARK)
        =================================================== -->
   <footer id="contact" class="relative z-10 border-t border-slate-200 bg-white pt-16 pb-12 px-4 sm:px-6 lg:px-8">
@@ -579,6 +579,112 @@
 
     </div>
   </footer>
+
+
+  <!-- ===================================================
+       CASE STUDY MODAL DIALOG CONTAINER
+       =================================================== -->
+  <div id="case-study-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fadeIn">
+    <div class="relative w-full max-w-5xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50 sticky top-0 z-20">
+        <div>
+          <span id="modal-client-badge" class="px-3 py-1 rounded-full bg-brand-orange text-white text-xs font-bold uppercase tracking-wider">CLIENT</span>
+          <span id="modal-category" class="ml-2 text-xs font-mono font-bold text-slate-500">CATEGORY</span>
+        </div>
+        <button id="modal-close-btn" class="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-600 hover:text-slate-950 hover:bg-slate-100 flex items-center justify-center transition-all focus:outline-none" aria-label="Close Modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 sm:p-10 overflow-y-auto space-y-8 flex-1">
+        
+        <div>
+          <h2 id="modal-title" class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Case Title</h2>
+          <p id="modal-lead" class="text-base sm:text-lg text-slate-600 mt-2 font-normal leading-relaxed">Lead paragraph</p>
+        </div>
+
+        <!-- Video Player Wrap (Conditional) -->
+        <div id="modal-video-wrap" class="hidden rounded-2xl overflow-hidden bg-black border border-slate-800 shadow-xl aspect-video">
+          <video id="modal-video-player" class="w-full h-full object-cover" controls playsinline preload="metadata">
+            <source src="../assets/images/supervek/KeepPushing-Supervek-x-Jagermeister.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- Horizontal Project Gallery Showcase -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">Project Visual Gallery</h3>
+            <span id="gallery-count-badge" class="text-xs font-mono text-brand-orange font-bold"></span>
+          </div>
+          
+          <div class="relative group/gallery">
+            <div id="modal-gallery-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 no-scrollbar rounded-2xl"></div>
+            
+            <button id="gallery-prev-btn" class="hidden absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md shadow-lg border border-slate-200 text-slate-800 hover:bg-brand-orange hover:text-white flex items-center justify-center transition-all z-10" aria-label="Previous image">
+              <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button id="gallery-next-btn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md shadow-lg border border-slate-200 text-slate-800 hover:bg-brand-orange hover:text-white flex items-center justify-center transition-all z-10" aria-label="Next image">
+              <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+          <div id="modal-gallery-dots" class="flex justify-center gap-1.5 pt-2"></div>
+        </div>
+
+        <!-- Project Details Block -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 rounded-2xl bg-slate-50 border border-slate-200 text-sm">
+          <div>
+            <span class="block text-xs font-mono font-bold text-slate-400 uppercase">TIMELINE</span>
+            <span id="modal-timeline" class="font-bold text-slate-900">4 to 6 Weeks</span>
+          </div>
+          <div>
+            <span class="block text-xs font-mono font-bold text-slate-400 uppercase">DELIVERABLE SCOPE</span>
+            <span id="modal-scope" class="font-bold text-slate-900">Brand Architecture</span>
+          </div>
+          <div>
+            <span class="block text-xs font-mono font-bold text-slate-400 uppercase">IMPACT</span>
+            <span id="modal-metric-1" class="font-bold text-brand-orange">Category Leadership</span>
+          </div>
+        </div>
+
+        <!-- Challenge & Solution -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="text-xs font-mono font-bold uppercase text-brand-pink">THE CHALLENGE</div>
+            <p id="modal-challenge" class="text-slate-700 leading-relaxed"></p>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="text-xs font-mono font-bold uppercase text-brand-orange">OUR SOLUTION</div>
+            <p id="modal-solution" class="text-slate-700 leading-relaxed"></p>
+          </div>
+        </div>
+
+        <!-- Testimonial Quote -->
+        <div class="p-6 rounded-2xl bg-orange-50/60 border border-orange-200 space-y-2">
+          <p id="modal-quote" class="text-slate-800 italic text-sm leading-relaxed"></p>
+          <div id="modal-author" class="text-xs font-mono font-bold text-brand-orange"></div>
+        </div>
+
+        <!-- Modal CTA Footer -->
+        <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h4 class="font-bold text-slate-900">Ready to build your distinctive brand?</h4>
+            <p class="text-xs text-slate-500">Book an initial strategy consultation with our studio team.</p>
+          </div>
+          <a href="#calculator" class="w-full sm:w-auto px-6 py-3 rounded-full bg-brand-orange text-white text-xs font-bold uppercase tracking-wider hover:bg-orange-600 transition-all text-center">
+            Estimate Project Scope
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
 
   <!-- Scripts -->
   <script src="../assets/js/app.js"></script>
