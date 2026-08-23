@@ -1,0 +1,34 @@
+name: 🚀 Automated FTP Deploy to Live Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🎉 Sync Files to Web Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Fetch Latest Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 📂 Sync Files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Path to your web root (usually 'public_html/' or 'htdocs/')
+          server-dir: ${{ secrets.FTP_SERVER_DIR || 'public_html/' }}
+          protocol: ftps
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .files/**
+            *.log
