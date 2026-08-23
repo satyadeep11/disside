@@ -167,7 +167,7 @@
     </div>
   </header>
 
-  <!-- Sticky Clean White Navigation -->
+    <!-- Sticky Clean White Navigation -->
   <nav id="main-nav" class="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md transition-all duration-300 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
@@ -177,14 +177,66 @@
       </a>
 
       <!-- Desktop Navigation Links -->
-      <div class="hidden lg:flex items-center gap-8 text-sm font-semibold tracking-normal text-slate-700">
+      <div class="hidden lg:flex items-center gap-7 text-sm font-semibold tracking-normal text-slate-700">
         <a href="../index.html#manifesto" class="nav-link hover:text-brand-orange transition-colors">Manifesto</a>
-        <a href="services.html" class="nav-link hover:text-brand-orange transition-colors">Services</a>
-        <a href="brand-strategy-agency-hyderabad.html" class="nav-link hover:text-brand-orange transition-colors">Brand Strategy</a>
-        <a href="packaging-design-agency-hyderabad.html" class="nav-link hover:text-brand-orange transition-colors font-bold text-brand-orange">Packaging Design</a>
-        <a href="branding-agency-hyderabad.html" class="nav-link hover:text-brand-orange transition-colors">Hyderabad Studio</a>
+
+        <!-- Services Dropdown (Interactive Hover Menu) -->
+        <div class="relative group py-6">
+          <a href="services.html" class="nav-link hover:text-brand-orange transition-colors flex items-center gap-1.5 focus:outline-none">
+            <span>Services</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-brand-orange group-hover:rotate-180 transition-transform duration-200"></i>
+          </a>
+
+          <!-- Dropdown Card -->
+          <div class="absolute top-[76px] left-1/2 -translate-x-1/2 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+            <div class="space-y-1">
+              <a href="services.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-orange-50 border border-orange-200 flex items-center justify-center text-brand-orange flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="layers" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">All Creative Services</div>
+                  <div class="text-[11px] text-slate-500 font-normal">Full 6-pillar capabilities suite</div>
+                </div>
+              </a>
+
+              <a href="brand-strategy-agency-hyderabad.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="compass" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">Brand Strategy & Valuation</div>
+                  <div class="text-[11px] text-slate-500 font-normal">Positioning & valuation multipliers</div>
+                </div>
+              </a>
+
+              <a href="packaging-design-agency-hyderabad.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="package" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">FMCG Packaging Design</div>
+                  <div class="text-[11px] text-slate-500 font-normal">Multi-SKU dielines & retail standout</div>
+                </div>
+              </a>
+
+              <a href="branding-agency-hyderabad.html" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item">
+                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 flex-shrink-0 group-hover/item:bg-brand-orange group-hover/item:text-white transition-colors">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 group-hover/item:text-brand-orange transition-colors">Hyderabad Studio Hub</div>
+                  <div class="text-[11px] text-slate-500 font-normal">HITEC City, Jubilee Hills & Pan-India</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <a href="../index.html#portfolio" class="nav-link hover:text-brand-orange transition-colors">Our Work</a>
+        <a href="../index.html#methodology" class="nav-link hover:text-brand-orange transition-colors">Methodology</a>
         <a href="../index.html#faq" class="nav-link hover:text-brand-orange transition-colors">Insights</a>
+        <a href="#contact" class="nav-link hover:text-brand-orange transition-colors">Contact</a>
       </div>
 
       <!-- Header Action Buttons -->
@@ -205,16 +257,34 @@
     </div>
 
     <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-200 bg-white px-6 py-8 flex flex-col gap-6 shadow-xl">
-      <a href="../index.html#manifesto" class="mobile-nav-link text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Manifesto</a>
-      <a href="services.html" class="mobile-nav-link text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Our Services</a>
-      <a href="brand-strategy-agency-hyderabad.html" class="mobile-nav-link text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Brand Strategy</a>
-      <a href="packaging-design-agency-hyderabad.html" class="mobile-nav-link text-lg font-display font-bold text-brand-orange">Packaging Design</a>
-      <a href="branding-agency-hyderabad.html" class="mobile-nav-link text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Hyderabad Studio Hub</a>
-      <a href="../index.html#portfolio" class="mobile-nav-link text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Selected Work & Case Studies</a>
-      <a href="../index.html#faq" class="mobile-nav-link text-lg font-display font-bold text-slate-900 hover:text-brand-orange">SEO Insights & FAQ</a>
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-200 bg-white px-6 py-8 flex flex-col gap-6 shadow-xl max-h-[85vh] overflow-y-auto">
+      <div class="space-y-3">
+        <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">Navigation</div>
+        <a href="../index.html#manifesto" class="mobile-nav-link block text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Manifesto</a>
+        <a href="../index.html#portfolio" class="mobile-nav-link block text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Our Work (16 Showcases)</a>
+        <a href="../index.html#methodology" class="mobile-nav-link block text-lg font-display font-bold text-slate-900 hover:text-brand-orange">4-D Methodology</a>
+        <a href="../index.html#faq" class="mobile-nav-link block text-lg font-display font-bold text-slate-900 hover:text-brand-orange">Insights & FAQ</a>
+      </div>
+
+      <div class="pt-4 border-t border-slate-200 space-y-3">
+        <div class="text-xs font-mono font-bold text-brand-orange uppercase tracking-wider">Services & Hubs</div>
+        <a href="services.html" class="mobile-nav-link flex items-center justify-between text-base font-bold text-slate-900 hover:text-brand-orange">
+          <span>All Creative Services</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 text-brand-orange"></i>
+        </a>
+        <a href="brand-strategy-agency-hyderabad.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Brand Strategy & Valuation</a>
+        <a href="packaging-design-agency-hyderabad.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">FMCG Packaging Architecture</a>
+        <a href="branding-agency-hyderabad.html" class="mobile-nav-link block text-sm font-semibold text-slate-700 hover:text-brand-orange">Hyderabad Studio Hub</a>
+      </div>
+
       <div class="pt-4 border-t border-slate-200 flex flex-col gap-3">
-        <a href="#calculator" class="w-full text-center py-3.5 rounded-xl bg-brand-orange text-white font-bold font-mono text-sm">Start a Project</a>
+        <a href="#calculator" class="w-full text-center py-3.5 rounded-xl bg-brand-orange text-white font-bold font-mono text-sm shadow-md">
+          Start Project / Scope Calculator
+        </a>
+        <a href="https://wa.me/919000139572" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-800 font-bold text-xs flex items-center justify-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-500"></i>
+          <span>WhatsApp Studio Direct</span>
+        </a>
       </div>
     </div>
   </nav>
