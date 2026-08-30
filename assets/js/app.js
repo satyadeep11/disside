@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const typeEffect = () => {
     if (!typewriterElement) return;
     const currentWord = capabilities[capIndex];
-    
+
     if (isDeleting) {
       typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
       charIndex--;
@@ -148,9 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Template logos and fragmented touchpoints bleed customer trust and kill pricing power.',
       metricText: '12% (Critical)',
       metricPercent: '12%',
-      colorClass: 'bg-red-500',
-      textColorClass: 'text-red-400',
-      iconWrapColor: 'border-red-500/40 bg-red-500/10 text-red-400'
+      colorClass: 'bg-rose-400',
+      textColorClass: 'text-rose-300',
+      iconWrapColor: 'border-rose-400/40 bg-rose-400/10 text-rose-300'
     },
     {
       step: 1,
@@ -160,9 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Deep consumer psychology and market gap audit define the high ground your brand will own.',
       metricText: '48% (Positioned)',
       metricPercent: '48%',
-      colorClass: 'bg-brand-orange',
-      textColorClass: 'text-brand-orange',
-      iconWrapColor: 'border-brand-orange/40 bg-brand-orange/10 text-brand-orange'
+      colorClass: 'bg-amber-400',
+      textColorClass: 'text-amber-300',
+      iconWrapColor: 'border-amber-400/40 bg-amber-400/10 text-amber-300'
     },
     {
       step: 2,
@@ -172,9 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Crafting unboxing rituals, high-recall visual identities, and interactive digital scrollytelling.',
       metricText: '84% (Distinctive)',
       metricPercent: '84%',
-      colorClass: 'bg-brand-pink',
-      textColorClass: 'text-brand-pink',
-      iconWrapColor: 'border-brand-pink/40 bg-brand-pink/10 text-brand-pink'
+      colorClass: 'bg-yellow-400',
+      textColorClass: 'text-yellow-300',
+      iconWrapColor: 'border-yellow-400/40 bg-yellow-400/10 text-yellow-300'
     },
     {
       step: 3,
@@ -184,9 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Compounding brand equity attracts elite capital, lowers CAC, and unlocks 4.8x enterprise multiples.',
       metricText: '96% (Market Leader)',
       metricPercent: '96%',
-      colorClass: 'bg-emerald-500',
-      textColorClass: 'text-emerald-400',
-      iconWrapColor: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-400'
+      colorClass: 'bg-emerald-400',
+      textColorClass: 'text-emerald-300',
+      iconWrapColor: 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
     }
   ];
 
@@ -200,16 +200,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const scrollyCards = document.querySelectorAll('.scrolly-step-card');
 
   const updateScrollyStage = (stepIndex) => {
-    const data = stageData[stepIndex];
-    if (!data) return;
-
+    const data = stageData[stepIndex] || stageData[0];
     if (phaseIndicator) phaseIndicator.textContent = data.phase;
     if (stageTitle) stageTitle.textContent = data.title;
     if (stageDesc) stageDesc.textContent = data.desc;
-    
+
     if (stageMetricVal) {
       stageMetricVal.textContent = data.metricText;
-      stageMetricVal.className = `${data.textColorClass} font-bold`;
+      stageMetricVal.className = `${data.textColorClass} font-bold font-mono`;
     }
 
     if (stageMetricBar) {
@@ -218,8 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (stageIconWrap) {
-      stageIconWrap.className = `w-16 h-16 rounded-2xl border flex items-center justify-center mb-4 transition-all duration-300 ${data.iconWrapColor}`;
-      stageIconWrap.innerHTML = `<i data-lucide="${data.icon}" class="w-8 h-8"></i>`;
+      stageIconWrap.className = `w-14 h-14 rounded-2xl border flex items-center justify-center mb-3 transition-all duration-300 ${data.iconWrapColor}`;
+      stageIconWrap.innerHTML = `<i data-lucide="${data.icon}" class="w-7 h-7"></i>`;
       if (window.lucide && stageIconWrap) {
         window.lucide.createIcons({ root: stageIconWrap });
       }
@@ -227,11 +225,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     stageBtns.forEach((btn, idx) => {
       if (idx === stepIndex) {
-        btn.classList.add('active');
-        btn.classList.remove('text-slate-600', 'border-slate-200', 'bg-slate-50');
+        btn.classList.add('active', 'border-amber-400/40', 'bg-amber-400/15', 'text-amber-200');
+        btn.classList.remove('border-white/10', 'bg-white/5', 'text-stone-400');
       } else {
-        btn.classList.remove('active');
-        btn.classList.add('text-slate-600', 'border-slate-200', 'bg-slate-50');
+        btn.classList.remove('active', 'border-amber-400/40', 'bg-amber-400/15', 'text-amber-200');
+        btn.classList.add('border-white/10', 'bg-white/5', 'text-stone-400');
       }
     });
 
@@ -279,12 +277,12 @@ document.addEventListener('DOMContentLoaded', () => {
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       filterBtns.forEach((b) => {
-        b.classList.remove('active', 'border-brand-orange', 'bg-brand-orange', 'text-white', 'shadow-sm');
-        b.classList.add('border-slate-300', 'bg-white', 'text-slate-700');
+        b.classList.remove('active', 'border-amber-400', 'bg-amber-400', 'text-slate-950', 'shadow-md');
+        b.classList.add('border-white/10', 'bg-white/5', 'text-stone-300');
       });
 
-      btn.classList.add('active', 'border-brand-orange', 'bg-brand-orange', 'text-white', 'shadow-sm');
-      btn.classList.remove('border-slate-300', 'bg-white', 'text-slate-700');
+      btn.classList.add('active', 'border-amber-400', 'bg-amber-400', 'text-slate-950', 'shadow-md');
+      btn.classList.remove('border-white/10', 'bg-white/5', 'text-stone-300');
 
       const filter = btn.getAttribute('data-filter');
 
@@ -917,11 +915,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const pill = document.getElementById(`step-pill-${num}`);
       if (!pill) return;
       if (num === stepNum) {
-        pill.className = 'whitespace-nowrap px-3.5 py-1.5 rounded-full bg-brand-orange text-white font-bold transition-all';
+        pill.className = 'whitespace-nowrap px-3 sm:px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-300 to-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/20 transition-all';
       } else if (num < stepNum) {
-        pill.className = 'whitespace-nowrap px-3.5 py-1.5 rounded-full bg-slate-900 text-white font-semibold transition-all';
+        pill.className = 'whitespace-nowrap px-3 sm:px-3.5 py-1.5 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-200 font-semibold transition-all';
       } else {
-        pill.className = 'whitespace-nowrap px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-500 font-semibold transition-all';
+        pill.className = 'whitespace-nowrap px-3 sm:px-3.5 py-1.5 rounded-full bg-white/5 text-stone-400 font-semibold border border-white/5 transition-all';
       }
     });
 
@@ -938,21 +936,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const safeStage = escapeHTML(selectedStage);
 
       briefSummaryView.innerHTML = `
-        <div class="flex justify-between py-1.5 border-b border-slate-200">
-          <span class="text-slate-500">Industry:</span>
-          <span class="text-slate-900 font-bold">${safeIndustry}</span>
+        <div class="flex justify-between py-1.5 border-b border-white/10">
+          <span class="text-stone-400">Industry:</span>
+          <span class="text-amber-200 font-bold">${safeIndustry}</span>
         </div>
-        <div class="flex justify-between py-1.5 border-b border-slate-200">
-          <span class="text-slate-500">Selected Deliverables:</span>
-          <span class="text-brand-orange font-bold text-right">${safeScopes}</span>
+        <div class="flex justify-between py-1.5 border-b border-white/10">
+          <span class="text-stone-400">Selected Deliverables:</span>
+          <span class="text-amber-300 font-bold text-right">${safeScopes}</span>
         </div>
-        <div class="flex justify-between py-1.5 border-b border-slate-200">
-          <span class="text-slate-500">Enterprise Stage:</span>
-          <span class="text-emerald-700 font-bold">${safeStage}</span>
+        <div class="flex justify-between py-1.5 border-b border-white/10">
+          <span class="text-stone-400">Enterprise Stage:</span>
+          <span class="text-emerald-400 font-bold">${safeStage}</span>
         </div>
         <div class="flex justify-between py-1.5">
-          <span class="text-slate-500">Estimated Roadmap:</span>
-          <span class="text-slate-900 font-bold">4 to 6 Weeks Cohort</span>
+          <span class="text-stone-400">Estimated Roadmap:</span>
+          <span class="text-stone-200 font-bold">4 to 6 Weeks Cohort</span>
         </div>
       `;
     }
@@ -1069,7 +1067,7 @@ document.addEventListener('DOMContentLoaded', () => {
           try {
             const cloudRes = await fetch('https://formsubmit.co/ajax/hello@disside.com', {
               method: 'POST',
-              headers: { 
+              headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
               },

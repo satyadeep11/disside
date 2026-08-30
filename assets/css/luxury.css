@@ -1,0 +1,205 @@
+/* ==========================================================================
+   DISSIDE LUXURY DESIGN SYSTEM — DARK ATELIER & CHAMPAGNE GOLD
+   Inspired by: Locomotive (Canada), Studio Freight (USA), Animal (India)
+   Engineered for: Clean, Text-Light, Easy-on-the-Eyes Luxury
+   ========================================================================== */
+
+:root {
+  /* Canvas & Surfaces (Easy on the eyes: deep obsidian & velvet charcoal) */
+  --lux-bg: #08080c;
+  --lux-bg-elevated: #0e0e14;
+  --lux-card: #12121b;
+  --lux-card-hover: #181824;
+  --lux-card-border: rgba(255, 255, 255, 0.08);
+  --lux-card-border-gold: rgba(212, 175, 55, 0.28);
+  
+  /* Metallic Champagne Gold & Bronze Palette */
+  --lux-gold: #d4af37;
+  --lux-gold-light: #f3e5ab;
+  --lux-gold-dark: #9e7d47;
+  --lux-champagne: #c5a880;
+  --lux-champagne-light: #f7f2e7;
+  --lux-bronze: #8c6d3b;
+
+  /* Typography Colors - Warm Alabaster (Zero Glare, Maximum Readability) */
+  --lux-text-primary: #ece8df;
+  --lux-text-secondary: #b5b3aa;
+  --lux-text-muted: #73727d;
+  --lux-text-gold: #e2c069;
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--lux-bg);
+  color: var(--lux-text-primary);
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Classes */
+.font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', 'Syne', serif;
+}
+
+.font-accent {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-mono {
+  font-family: 'Space Grotesk', monospace;
+}
+
+/* Gold Foil Text Gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f7f2e7 0%, #d4af37 50%, #c5a880 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-soft {
+  background: linear-gradient(135deg, #ffffff 0%, #e2c069 50%, #c5a880 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #9e7d47 100%);
+}
+
+.bg-gold-subtle {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(197, 168, 128, 0.05) 100%);
+}
+
+/* Hairline Luxury Card Borders & Hover */
+.lux-border {
+  border: 1px solid var(--lux-card-border);
+}
+
+.lux-border-gold {
+  border: 1px solid var(--lux-card-border-gold);
+}
+
+.lux-card-glass {
+  background-color: rgba(18, 18, 27, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-card-glass:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.08);
+}
+
+/* Custom Gold Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08080c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272738;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Continuous Marquee Animations */
+.marquee-wrapper {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Scrollytelling Visual Card */
+.scrolly-sticky-box {
+  transition: all 0.4s ease-out;
+}
+
+.scrolly-step-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scrolly-step-card.active-step {
+  border-color: rgba(212, 175, 55, 0.5) !important;
+  background-color: #151522 !important;
+  box-shadow: 0 10px 30px -5px rgba(212, 175, 55, 0.12);
+}
+
+/* Gallery Slider Card */
+.modal-gallery-slide {
+  flex: 0 0 calc(50% - 8px);
+  min-width: 260px;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #12121b;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 640px) {
+  .modal-gallery-slide {
+    flex: 0 0 calc(100% - 16px);
+  }
+}
+
+/* Wizard Option Selection Focus */
+.wizard-option-label:has(input:checked) {
+  border-color: #d4af37 !important;
+  background-color: rgba(212, 175, 55, 0.1) !important;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.15);
+}
+
+.wizard-checkbox-label:has(input:checked) {
+  border-color: #d4af37 !important;
+  background-color: rgba(212, 175, 55, 0.08) !important;
+}
+
+/* FAQ Accordion Transitions */
+.faq-content {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* No Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
