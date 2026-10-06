@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Force HTTPS & canonical domain if needed
+# 301 Permanent Redirect for /about-us /about-us/ to /index.html#our-story
+RewriteRule ^about-us/?$ /index.html#our-story [R=301,NE,L]
