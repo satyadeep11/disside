@@ -1118,28 +1118,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const content = item.querySelector('.faq-content');
 
     if (trigger && content) {
-      trigger.addEventListener('click', () => {
+      // Normalize any hardcoded 'hidden' class to max-h-0
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        content.style.maxHeight = '0px';
+      }
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
         const isOpen = item.classList.contains('active');
 
-        // Close all other items
+        // Close all other accordion items
         faqItems.forEach((other) => {
           if (other !== item) {
             other.classList.remove('active');
             const otherContent = other.querySelector('.faq-content');
             const otherTrigger = other.querySelector('.faq-trigger');
-            if (otherContent) otherContent.style.maxHeight = null;
-            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+            if (otherContent) {
+              otherContent.style.maxHeight = '0px';
+            }
+            if (otherTrigger) {
+              otherTrigger.setAttribute('aria-expanded', 'false');
+            }
           }
         });
 
         if (isOpen) {
-          content.style.maxHeight = null;
+          content.style.maxHeight = '0px';
           item.classList.remove('active');
           trigger.setAttribute('aria-expanded', 'false');
         } else {
-          content.style.maxHeight = content.scrollHeight + 'px';
           item.classList.add('active');
           trigger.setAttribute('aria-expanded', 'true');
+          // Calculate precise scrollHeight and set maxHeight
+          content.style.maxHeight = (content.scrollHeight + 32) + 'px';
         }
       });
     }

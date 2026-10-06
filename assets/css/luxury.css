@@ -212,13 +212,30 @@ body {
   background-color: rgba(212, 175, 55, 0.08) !important;
 }
 
-/* FAQ Accordion Transitions */
-.faq-content {
+/* FAQ Accordion Transitions & Active States */
+.faq-item {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.faq-item.active {
+  border-color: rgba(212, 175, 55, 0.5) !important;
+  background-color: #141420 !important;
+  box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15) !important;
+}
+
+.faq-item.active .faq-chevron,
+.faq-item.active svg.lucide-chevron-down,
+.faq-item.active i[data-lucide="chevron-down"] {
+  transform: rotate(180deg);
+  color: #f3e5ab !important;
+}
+
+.faq-content {
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
 .faq-item:hover {
-  border-color: rgba(212, 175, 55, 0.3);
+  border-color: rgba(212, 175, 55, 0.35);
 }
 
 /* No Scrollbar Utility */
