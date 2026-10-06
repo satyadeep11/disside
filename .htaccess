@@ -1,5 +1,7 @@
 RewriteEngine On
 
-# Force HTTPS & canonical domain if needed
+# 404 Error Document Handler (Serves custom 404.html page on all broken paths)
+ErrorDocument 404 /404.html
+
 # 301 Permanent Redirect for /about-us /about-us/ to /index.html#our-story
 RewriteRule ^about-us/?$ /index.html#our-story [R=301,NE,L]

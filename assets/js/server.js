@@ -165,9 +165,16 @@ const server = http.createServer(async (req, res) => {
       }
     }
   } catch (err) {
-    // Return honest 404 (No SPA masking of arbitrary/probe URLs)
-    res.writeHead(404, { 'Content-Type': 'text/plain', 'X-Content-Type-Options': 'nosniff' });
-    return res.end('404 Not Found');
+    // Serve custom 404.html page with 404 status code
+    try {
+      const notFoundPage = path.join(rootDir, '404.html');
+      const notFoundContent = await fsp.readFile(notFoundPage);
+      res.writeHead(404, { 'Content-Type': 'text/html; charset=UTF-8', 'X-Content-Type-Options': 'nosniff' });
+      return res.end(notFoundContent);
+    } catch {
+      res.writeHead(404, { 'Content-Type': 'text/plain', 'X-Content-Type-Options': 'nosniff' });
+      return res.end('404 Not Found');
+    }
   }
 
   const ext = path.extname(filePath).toLowerCase();
