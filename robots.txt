@@ -1,5 +1,36 @@
+# Disside Robots Directives
 User-agent: *
 Allow: /
 Disallow: /scratch/
 
+# AI Search & Large Language Model Crawlers (Permitted for Citation & GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# Sitemap & LLMs Knowledge Discovery
 Sitemap: https://disside.com/sitemap.xml
+# LLMs Context: https://disside.com/llms.txt
