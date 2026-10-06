@@ -2,86 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
-  <!-- Master Homepage -->
+  <!-- 1. Master Homepage: Top Branding Agency in Hyderabad & Brand Strategy Studio -->
   <url>
     <loc>https://disside.com/</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>1.00</priority>
     <image:image>
       <image:loc>https://disside.com/assets/images/uber/uber-branding-hyderabad-city-hoarding-2560x1440.jpg</image:loc>
-      <image:title>Uber Hyderabad Citywide Launch Branding - Disside</image:title>
+      <image:title>Uber Hyderabad Citywide Launch Branding by Disside</image:title>
+      <image:caption>Top creative branding and strategy campaign in Hyderabad for Uber India.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://disside.com/assets/images/bambino/Bambino.jpg</image:loc>
-      <image:title>Bambino National FMCG Packaging Design - Disside</image:title>
+      <image:title>Bambino National FMCG Food Packaging Design by Disside</image:title>
+      <image:caption>Master corporate identity and packaging architecture across 100,000+ retail stores in India.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://disside.com/assets/images/supervek/Jager_500x.webp</image:loc>
+      <image:title>Supervek x Jägermeister Streetwear Branding by Disside</image:title>
+      <image:caption>D2C luxury and streetwear visual identity design in India.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://disside.com/assets/images/organo/Organo-2560x1440.jpg</image:loc>
+      <image:title>Organo Eco-Habitats Real Estate Branding by Disside</image:title>
+      <image:caption>Sustainable luxury real estate branding and narrative monograph in Hyderabad.</image:caption>
     </image:image>
   </url>
 
-  <!-- Master Services Page -->
+  <!-- 2. Primary Local Authority Hub: Best Branding Agency in Hyderabad -->
   <url>
-    <loc>https://disside.com/pages/services.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://disside.com/pages/branding-agency-hyderabad.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.98</priority>
     <image:image>
-      <image:loc>https://disside.com/assets/images/logo/logo-big-disside-updated.jpg</image:loc>
-      <image:title>Creative Branding, Packaging Design &amp; Strategy Services - Disside</image:title>
+      <image:loc>https://disside.com/assets/images/uber/uber-branding-hyderabad-city-hoarding-2560x1440.jpg</image:loc>
+      <image:title>Best Branding Agency in Hyderabad - Disside Studio Jubilee Hills</image:title>
+      <image:caption>Elite brand strategy and creative advertising agency in Hyderabad serving HITEC City and Jubilee Hills.</image:caption>
     </image:image>
   </url>
 
-  <!-- Core Service Pillar: Brand Strategy -->
+  <!-- 3. Master Capabilities & Services Directory -->
+  <url>
+    <loc>https://disside.com/pages/services.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://disside.com/assets/images/logo/logo-big-disside-updated.jpg</image:loc>
+      <image:title>Creative Branding, Packaging Design &amp; Strategy Services - Disside</image:title>
+      <image:caption>Comprehensive brand consultancy, visual systems, and digital scrollytelling services in India.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 4. Core Capability Pillar: Brand Strategy Agency Hyderabad & India -->
   <url>
     <loc>https://disside.com/pages/brand-strategy-agency-hyderabad.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://disside.com/assets/images/uber/uber-branding-hyderabad-city-hoarding-2560x1440.jpg</image:loc>
+      <image:title>Brand Strategy &amp; Positioning Firm Hyderabad - Disside</image:title>
+    </image:image>
   </url>
 
-  <!-- Core Service Pillar: Visual Identity Design -->
+  <!-- 5. Core Capability Pillar: Visual Identity Systems Design -->
   <url>
     <loc>https://disside.com/pages/visual-identity-design.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
-  <!-- Core Service Pillar: Packaging Design -->
+  <!-- 6. Core Capability Pillar: Packaging Design Agency Hyderabad & India -->
   <url>
     <loc>https://disside.com/pages/packaging-design-agency-hyderabad.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://disside.com/assets/images/bambino/Bambino.jpg</image:loc>
+      <image:title>FMCG Packaging Design Agency in Hyderabad - Disside</image:title>
+    </image:image>
   </url>
 
-  <!-- Core Service Pillar: Digital Scrollytelling Websites -->
+  <!-- 7. Core Capability Pillar: Digital Scrollytelling Websites -->
   <url>
     <loc>https://disside.com/pages/digital-scrollytelling-websites.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
-  <!-- Interactive Experience Lab: Inspire Scrollytelling -->
-  <url>
-    <loc>https://disside.com/pages/inspire.html</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.96</priority>
-  </url>
-
-  <!-- Core Service Pillar: Corporate Rebranding -->
+  <!-- 8. Core Capability Pillar: Corporate Rebranding Agency India -->
   <url>
     <loc>https://disside.com/pages/corporate-rebranding.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
-  <!-- Industry Vertical Hub: FMCG & Food Packaging -->
+  <!-- 9. Industry Vertical Hub: FMCG & Food Packaging Branding -->
   <url>
     <loc>https://disside.com/pages/fmcg-food-packaging-branding.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.93</priority>
     <image:image>
@@ -90,50 +116,50 @@
     </image:image>
   </url>
 
-  <!-- Industry Vertical Hub: Tech & SaaS Startups -->
+  <!-- 10. Industry Vertical Hub: Tech & SaaS Startup Branding -->
   <url>
     <loc>https://disside.com/pages/tech-saas-startup-branding.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.93</priority>
   </url>
 
-  <!-- Industry Vertical Hub: Real Estate & Architecture -->
+  <!-- 11. Industry Vertical Hub: Real Estate & Architecture Branding -->
   <url>
     <loc>https://disside.com/pages/real-estate-architecture-branding.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.93</priority>
     <image:image>
       <image:loc>https://disside.com/assets/images/organo/Organo-2560x1440.jpg</image:loc>
-      <image:title>Real Estate &amp; Architectural Branding Studio - Disside</image:title>
+      <image:title>Real Estate &amp; Architectural Branding Studio Hyderabad - Disside</image:title>
     </image:image>
   </url>
 
-  <!-- Industry Vertical Hub: D2C & Luxury Fashion -->
+  <!-- 12. Industry Vertical Hub: D2C & Luxury Fashion Branding -->
   <url>
     <loc>https://disside.com/pages/d2c-fashion-luxury-branding.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.93</priority>
     <image:image>
       <image:loc>https://disside.com/assets/images/supervek/Jager_500x.webp</image:loc>
-      <image:title>D2C Streetwear &amp; Luxury Fashion Branding - Disside</image:title>
+      <image:title>D2C Fashion &amp; Streetwear Branding Studio India - Disside</image:title>
     </image:image>
   </url>
 
-  <!-- Hyper-Local Authority Page: Hyderabad Studio -->
-  <url>
-    <loc>https://disside.com/pages/branding-agency-hyderabad.html</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- Interactive Tool: Brand Project Calculator -->
+  <!-- 13. Interactive Tool: Brand Project Calculator -->
   <url>
     <loc>https://disside.com/pages/brand-project-calculator.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 14. Creative Technology Laboratory: Inspire Scrollytelling Lab -->
+  <url>
+    <loc>https://disside.com/pages/inspire.html</loc>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
