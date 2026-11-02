@@ -1,0 +1,1 @@
+import"./hoisted.l5h7m_LZ.js";const c=new URLSearchParams(window.location.search),t=c.get("service"),e=c.get("industry");(t||e)&&document.querySelectorAll("[data-services]").forEach(s=>{const o=(s.dataset.services||"").split(/\s+/),i=s.dataset.industry||"",a=!t||o.includes(t),r=!e||i===e,n=s.closest(".wk-cell")||s.parentElement;n&&n.classList.toggle("hidden",!(a&&r))});

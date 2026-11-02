@@ -1,10 +1,13 @@
-# Disside Robots Directives
+# Disside robots.txt
 User-agent: *
 Allow: /
 Disallow: /scratch/
 
-# AI Search & Large Language Model Crawlers (Permitted for Citation & GEO)
+# AI search and answer engines: allowed, so Disside can be cited
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
@@ -13,10 +16,25 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended
@@ -25,12 +43,26 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
-User-agent: OAI-SearchBot
+User-agent: Bingbot
 Allow: /
 
-User-agent: Cohere-ai
+User-agent: DuckAssistBot
 Allow: /
 
-# Sitemap & LLMs Knowledge Discovery
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://disside.com/sitemap.xml
-# LLMs Context: https://disside.com/llms.txt
+# AI summary: https://disside.com/llms.txt (full: https://disside.com/llms-full.txt)
