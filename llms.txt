@@ -1,72 +1,37 @@
-# Disside
+# Disside Design Studio
 
-> Disside is a branding and marketing agency in Hyderabad, India, founded in 2012. We design brand strategy, brand identity & visual systems (logo, colours, fonts, imagery), packaging, websites, marketing campaigns, and digital marketing & SEO for Indian and global brands.
+> Disside is an independent brand strategy, visual identity design, luxury packaging architecture, and creative technology atelier headquartered in Jubilee Hills, Hyderabad, India. Founded in 2014, the studio builds market-dominating brand systems, mass FMCG retail packaging, and cinema-grade digital scrollytelling monographs for enterprises, venture-backed startups, and heritage corporations across Hyderabad, India, and global markets.
 
-- Founded: 2012, Hyderabad, Telangana, India
-- Founder: Satyajeet Singh
-- Studio: Jubilee Hills, Hyderabad, Telangana 500033, India
-- Phone / WhatsApp: +91 90001 39572
-- Email: hello@disside.com
-- Hours: Monday – Friday, 9:30 AM – 7:00 PM IST
-- Selected clients: Uber, Jägermeister x Supervek, Bambino, Cream Stone, Karma Kettle, FHD Group, Organo, Shivpra Cranes, Blackstraw, Shian Capital, Sree Balaji Hospital, Santinos Global School
+## Core Capabilities & Services
+- [Brand Strategy & Corporate Positioning](https://disside.com/pages/brand-strategy-agency-hyderabad.html): Category creation, consumer psychology, pricing power formulation, and corporate brand architecture.
+- [Visual Identity Systems & Brand Bible](https://disside.com/pages/visual-identity-design.html): Primary logomarks, monogram suites, bespoke typographic hierarchies, and exhaustive 100+ page Brand Bibles.
+- [FMCG & Luxury Packaging Design](https://disside.com/pages/packaging-design-agency-hyderabad.html): High-impact retail shelf standout, structural dielines, FSSAI regulatory compliance, and multi-SKU unboxing architecture.
+- [Digital Scrollytelling Websites](https://disside.com/pages/digital-scrollytelling-websites.html): 60fps GSAP motion, Three.js 3D WebGL interactive storytelling, and high-conversion enterprise monographs.
+- [Corporate Rebranding & Enterprise Modernization](https://disside.com/pages/corporate-rebranding.html): Legacy enterprise brand transitions, M&A brand restructuring, and compound equity preservation.
+- [Inspire // Creative Tech Laboratory](https://disside.com/pages/inspire.html): Experimental 3D WebGL laboratory, optical refraction shaders, and kinetic typography.
 
-## Services
-- [Brand Strategy](https://disside.com/pages/brand-strategy-agency-hyderabad.html): Brand strategy is the plan behind your brand: who you are for, what makes you different and how you should sound, written down so everyone in your company says the same thing.
-- [Brand Identity & Visual System](https://disside.com/pages/visual-identity-design.html): A brand identity and visual system is the complete look of your brand (logo, colours, fonts, imagery, icons and layouts) designed as one system so it looks the same on a visiting card, a signboard, a pack and a website.
-- [Packaging Design](https://disside.com/pages/packaging-design-agency-hyderabad.html): Packaging design is the design of the box, pouch, tin, label or bottle your product is sold in, so it stands out on the shelf, explains the product quickly and still looks like your brand.
-- [Website Design](https://disside.com/pages/digital-scrollytelling-websites.html): Website design is planning, designing and building your website so it looks like your brand, loads fast on phones, ranks on Google and makes it easy for people to call, WhatsApp or enquire.
-- [Marketing Campaigns](https://disside.com/services/campaigns/): A marketing campaign is a set of ads with one idea (hoardings, newspaper ads, cinema ads, social posts and films) that runs for a fixed time to launch something or get people to act.
-- [Digital Marketing & SEO](https://disside.com/pages/social-media-marketing-agency-hyderabad.html): Digital marketing and SEO is the work of helping people find your business online, on Google Search, Google Maps, social media and AI answer tools, and turning those visits into calls and enquiries.
-- [Signage & Spaces](https://disside.com/services/signage-spaces/): Signage and spaces design is bringing your brand into the real world (shop signboards, menus, wall graphics, wayfinding and office or site branding) so people recognise you from the street and find their way once inside.
-- [Motion & Film](https://disside.com/services/motion-film/): Motion and film is your brand on screen: logo animations, brand and campaign films, product videos and social reels, designed in the same style as your visual identity.
-- [Rebranding](https://disside.com/pages/corporate-rebranding.html): Rebranding is updating an existing brand (its name, logo, look or message) so it fits where the business is today, while keeping what customers already know and trust.
+## Industry Verticals & Sector Specializations
+- [FMCG & Food Packaging Brands](https://disside.com/pages/fmcg-food-packaging-branding.html): Packaged foods, confectionery, gourmet beverages, and mass retail distribution.
+- [Tech & SaaS Startups](https://disside.com/pages/tech-saas-startup-branding.html): Enterprise software, B2B SaaS, deep tech, and venture-backed startup narratives.
+- [Real Estate & Architecture](https://disside.com/pages/real-estate-architecture-branding.html): Eco-luxury habitats, architectural monographs, and property development branding.
+- [D2C & Luxury Lifestyle](https://disside.com/pages/d2c-fashion-luxury-branding.html): Direct-to-consumer fashion, premium streetwear, and luxury goods.
+- [Hyderabad Studio Hub](https://disside.com/pages/branding-agency-hyderabad.html): Hyper-local brand strategy and creative design hub for HITEC City, Jubilee Hills, Gachibowli, and Banjara Hills.
 
-## Specialist pages
-- [Logo Design](https://disside.com/pages/logo-design-company-hyderabad.html): Disside is a logo design company in Jubilee Hills, Hyderabad. We design logos with colours, fonts and brand guidelines for startups, restaurants, schools and businesses.
-- [Website Design](https://disside.com/pages/website-design-company-hyderabad.html): Disside is a website design company in Hyderabad. We design and build fast, mobile-first websites with clear content and SEO basics for growing businesses.
-- [Restaurant Branding](https://disside.com/pages/restaurant-branding-agency-hyderabad.html): Restaurant, cafe and food brand design in Hyderabad. Disside creates logos, menus, interiors graphics, packaging and launch campaigns for food and beverage businesses.
-- [Social Media Marketing](https://disside.com/pages/social-media-marketing-agency-hyderabad.html): Disside is a social media marketing agency in Hyderabad. We plan, design and run Instagram, Facebook and LinkedIn content, ads and launch campaigns that match your brand.
-- [Brand Naming](https://disside.com/pages/brand-naming-agency-india.html): Disside is a brand naming agency in Hyderabad, India. We create business and product names that are easy to say, easy to remember and checked for domains.
+## Featured Client Monograph Roster
+- **Uber (India)**: Hyderabad citywide launch campaign and high-impact outdoor hoardings.
+- **Bambino Agro**: National master rebranding and FMCG packaging architecture across 100,000+ retail stores in India.
+- **Supervek x Jägermeister**: International collaboration D2C streetwear branding, limited-edition apparel packaging, and video production.
+- **Organo Eco-Habitats**: Eco-luxury residential community branding, sustainability storytelling, and architectural monographs in Hyderabad.
+- **Cream Stone**: National confectionery identity, scoop-parlor environmental signage, and unboxing design.
+- **FHD Group**: Architectural conglomerate master positioning and corporate brand guidelines.
 
-## Industries
-- [FMCG & food](https://disside.com/pages/fmcg-food-packaging-branding.html): Packaging and brand systems for household food brands that sell at scale.
-- [Food & beverage](https://disside.com/pages/restaurant-branding-agency-hyderabad.html): Identity, menus and packaging for cafes, restaurants, bars and dessert brands.
-- [Tech & SaaS](https://disside.com/pages/tech-saas-startup-branding.html): Clear brands and websites for technology and AI companies.
-- [Real estate & architecture](https://disside.com/pages/real-estate-architecture-branding.html): Brands, brochures and websites for developers and design firms.
-- [D2C, fashion & lifestyle](https://disside.com/pages/d2c-fashion-luxury-branding.html): Identity, packaging and online stores for D2C and lifestyle brands.
-- [Mobility, transport & EV](https://disside.com/industries/mobility/): City campaigns and brand systems for mobility brands.
-- [Hospitality & wellness](https://disside.com/industries/hospitality-wellness/): Calm, premium brands for stays, spas and wellness.
-- [Media & film](https://disside.com/industries/media-film/): Identities and websites for production houses and media brands.
-- [Education](https://disside.com/industries/education/): Crests, identities and websites for schools and colleges.
-- [Healthcare](https://disside.com/industries/healthcare/): Warm, clear brands for hospitals and clinics.
-- [Industrial & manufacturing](https://disside.com/industries/industrial/): Solid, engineering-first brands and websites for manufacturers.
-- [Architecture & interiors](https://disside.com/industries/architecture-interiors/): Studio identities, brochures and portfolio websites for design firms.
-- [Finance & consulting](https://disside.com/industries/finance-consulting/): Quiet, confident brands for finance and advisory firms.
-- [Textiles & apparel](https://disside.com/industries/textiles/): Modern identities and websites for textile, yarn and apparel makers.
+## Studio Location & Direct Contact
+- **Headquarters**: Jubilee Hills, Hyderabad, Telangana 500033, India
+- **Areas Served**: Hyderabad, HITEC City, Jubilee Hills, Gachibowli, Bengaluru, Mumbai, Delhi NCR, Dubai, Singapore, Global
+- **Email**: hello@disside.com
+- **Direct Phone / WhatsApp**: +91 90001 39572
+- **Website**: https://disside.com/
+- **Interactive Project Scope Calculator**: https://disside.com/pages/brand-project-calculator.html
 
-## Key pages
-- [Home](https://disside.com/)
-- [All services](https://disside.com/pages/services.html)
-- [Branding agency in Hyderabad](https://disside.com/pages/branding-agency-hyderabad.html)
-- [Inspire: interactive web ideas](https://disside.com/pages/inspire.html)
-- [Brand project scope & timeline calculator](https://disside.com/pages/brand-project-calculator.html): pick industry, services and stage to see a typical timeline in weeks (no prices)
-- [All work](https://disside.com/work/) (67 projects)
-- [About Disside](https://disside.com/about/)
-- [Contact](https://disside.com/contact/)
-- [Sitemap](https://disside.com/sitemap.xml)
-
-## Featured projects
-- [Jägermeister x Supervek](https://disside.com/work/jagermeister/): Campaign, film and sold-out capsule collection for a liqueur brand’s first streetwear collaboration.
-- [Uber](https://disside.com/work/uber/): Local campaigns, outdoor ads and brand experiences for a ride-hailing launch in Hyderabad.
-- [Karma Kettle](https://disside.com/work/karmakettle/): Strategy, naming, identity, tin packaging and website for an artisanal tea brand.
-- [Bambino](https://disside.com/work/bambino/): Website redesign and refined packaging for a packaged food brand since 1982.
-- [FHD India](https://disside.com/work/fhd/): Identity, websites and presentations for a Hyderabad architecture practice, over a decade.
-- [NRKR Textiles](https://disside.com/work/nrkr/): Identity, website, brochures and trade-show stalls for a Guntur cotton and yarn maker.
-- [Cream Stone](https://disside.com/work/creamstone/): Social media, paid campaigns and rebranding support for an ice cream brand.
-- [Shivpra Cranes](https://disside.com/work/shivpra-cranes/): An engineering-led rebrand and new website for a Hyderabad crane manufacturer.
-- [Organo](https://disside.com/work/organo/): Identity, website and produce packaging for a sustainable community-living brand in Hyderabad.
-- [Santinos Global School](https://disside.com/work/santinos/): A halo-inspired crest, identity and launch campaign for a CBSE school in Meerpet.
-- [Olectra Greentech](https://disside.com/work/olectra/): Brand identity and website for a Hyderabad maker of electric buses.
-
-## Optional
-- [Full details for AI tools](https://disside.com/llms-full.txt)
+## Full Context Documentation
+- [Comprehensive Service Specifications & Methodology](https://disside.com/llms-full.txt): Detailed breakdown of Disside's 4-D proprietary methodology (Discover, Distill, Design, Dominance), timelines, and deliverable standards.
