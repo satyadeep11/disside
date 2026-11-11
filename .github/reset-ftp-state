@@ -1,1 +1,0 @@
-Remove after one green deploy. Tells deploy.yml to delete only .ftp-deploy-sync-state.json on the server once.
