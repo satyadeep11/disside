@@ -17,18 +17,46 @@ jobs:
           fetch-depth: 2
 
       - name: Ensure remote folders exist (fixes 550 /assets)
-        # The FTP action's server-side sync state still lists /assets; when that folder is gone the
-        # action stops with "550 /assets: No such file or directory". Recreate it (idempotent, deletes nothing).
+        # Strict + diagnostic. Resolves server-dir exactly like FTP-Deploy-Action (default ./, relative to the FTP login folder).
+        # If .github/reset-ftp-state exists in the repo, it also deletes ONLY the action's state file
+        # (.ftp-deploy-sync-state.json) so the next sync does one full upload and writes a fresh state. Never deletes site files.
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR || './' }}
         run: |
+          set -euo pipefail
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-          DIR="${FTP_SERVER_DIR%/}"; [ -z "$DIR" ] && DIR="."
-          lftp --env-password -u "$FTP_USERNAME" "ftp://$FTP_SERVER" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no; set net:max-retries 2; set net:timeout 20; mkdir -p -f $DIR/assets; bye" \
-            || echo "::warning::Could not pre-create $DIR/assets on the FTP server"
+          DIR="${FTP_SERVER_DIR:-./}"; DIR="${DIR%/}"; [ -z "$DIR" ] && DIR="."
+          RESET=""
+          if [ -f .github/reset-ftp-state ]; then RESET="rm -f .ftp-deploy-sync-state.json"; echo "::notice::Reset marker found: removing the FTP sync state file only"; fi
+          cat > /tmp/pre.lftp <<EOF
+          set cmd:fail-exit yes
+          set ftp:ssl-force true
+          set ftp:ssl-protect-data true
+          set ssl:verify-certificate no
+          set net:max-retries 2
+          set net:timeout 30
+          echo "login folder:"
+          pwd
+          cd "$DIR"
+          echo "server-dir:"
+          pwd
+          cls -1a
+          cls -d assets || mkdir assets
+          cls -d assets
+          $RESET
+          echo "after:"
+          cls -1a
+          bye
+          EOF
+          lftp --env-password -u "$FTP_USERNAME" "ftp://$FTP_SERVER" -e "source /tmp/pre.lftp" 2>&1 | tee /tmp/pre.out
+          AFTER=$(sed -n '/^after:/,$p' /tmp/pre.out)
+          HAS_ASSETS=$(echo "$AFTER" | grep -cxE 'assets/?' || true)
+          HAS_STATE=$(echo "$AFTER" | grep -cx '.ftp-deploy-sync-state.json' || true)
+          echo "::notice::server-dir '$DIR': assets folder present=$HAS_ASSETS, sync state file present=$HAS_STATE, entries=$(echo "$AFTER" | tail -n +2 | wc -l)"
+          [ "$HAS_ASSETS" -ge 1 ] || { echo "::error::assets folder still missing in server-dir"; exit 1; }
 
       - name: 📂 Sync Files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
