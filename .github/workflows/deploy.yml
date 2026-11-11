@@ -16,6 +16,20 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Ensure remote folders exist (fixes 550 /assets)
+        # The FTP action's server-side sync state still lists /assets; when that folder is gone the
+        # action stops with "550 /assets: No such file or directory". Recreate it (idempotent, deletes nothing).
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR || './' }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+          DIR="${FTP_SERVER_DIR%/}"; [ -z "$DIR" ] && DIR="."
+          lftp --env-password -u "$FTP_USERNAME" "ftp://$FTP_SERVER" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no; set net:max-retries 2; set net:timeout 20; mkdir -p -f $DIR/assets; bye" \
+            || echo "::warning::Could not pre-create $DIR/assets on the FTP server"
+
       - name: 📂 Sync Files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
