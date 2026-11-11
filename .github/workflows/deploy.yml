@@ -39,6 +39,8 @@ jobs:
           # Destination directory on web server root
           server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
           protocol: ftps
+          timeout: 120000
+          log-level: standard
           dangerous-clean-slate: false
           exclude: |
             **/.git*
