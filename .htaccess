@@ -87,9 +87,22 @@ ErrorDocument 404 /404.html
 
 # Responsive image formats (AVIF/WebP) ? correct MIME so Hostinger/LiteSpeed serves them properly.
 <IfModule mod_mime.c>
-  AddType image/avif .avif
-  AddType image/webp .webp
+  AddType image/avif .avif avif
+  AddType image/webp .webp webp
 </IfModule>
+<FilesMatch "\.avif$">
+  ForceType image/avif
+  <IfModule mod_headers.c>
+    Header set Content-Type "image/avif"
+    Header unset X-Content-Type-Options
+  </IfModule>
+</FilesMatch>
+<FilesMatch "\.webp$">
+  ForceType image/webp
+  <IfModule mod_headers.c>
+    Header set Content-Type "image/webp"
+  </IfModule>
+</FilesMatch>
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/avif "access plus 1 year"

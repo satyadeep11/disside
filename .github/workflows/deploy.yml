@@ -1,4 +1,4 @@
-name: 🚀 Automated FTP Deploy to Live Server
+name: Automated FTP Deploy to Live Server
 
 on:
   push:
@@ -7,19 +7,23 @@ on:
 
 jobs:
   web-deploy:
-    name: 🎉 Sync Files to Web Server
+    name: Sync Files to Web Server
     runs-on: ubuntu-latest
+    timeout-minutes: 360
 
     steps:
-      - name: 🚚 Fetch Latest Code
+      - name: Fetch Latest Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
       - name: Ensure remote folders exist (fixes 550 /assets)
-        # Strict + diagnostic. Resolves server-dir exactly like FTP-Deploy-Action (default ./, relative to the FTP login folder).
-        # If .github/reset-ftp-state exists in the repo, it also deletes ONLY the action's state file
-        # (.ftp-deploy-sync-state.json) so the next sync does one full upload and writes a fresh state. Never deletes site files.
+        # Resolves server-dir relative to the FTP login folder (default ./).
+        # If .github/reset-ftp-state exists, deletes ONLY the old action's
+        # .ftp-deploy-sync-state.json. Never deletes site files.
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -27,7 +31,6 @@ jobs:
           FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR || './' }}
         run: |
           set -euo pipefail
-          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
           DIR="${FTP_SERVER_DIR:-./}"; DIR="${DIR%/}"; [ -z "$DIR" ] && DIR="."
           RESET=""
           if [ -f .github/reset-ftp-state ]; then RESET="rm -f .ftp-deploy-sync-state.json"; echo "::notice::Reset marker found: removing the FTP sync state file only"; fi
@@ -36,7 +39,7 @@ jobs:
           set ftp:ssl-force true
           set ftp:ssl-protect-data true
           set ssl:verify-certificate no
-          set net:max-retries 2
+          set net:max-retries 5
           set net:timeout 30
           echo "login folder:"
           pwd
@@ -55,24 +58,114 @@ jobs:
           AFTER=$(sed -n '/^after:/,$p' /tmp/pre.out)
           HAS_ASSETS=$(echo "$AFTER" | grep -cxE 'assets/?' || true)
           HAS_STATE=$(echo "$AFTER" | grep -cx '.ftp-deploy-sync-state.json' || true)
-          echo "::notice::server-dir '$DIR': assets folder present=$HAS_ASSETS, sync state file present=$HAS_STATE, entries=$(echo "$AFTER" | tail -n +2 | wc -l)"
+          echo "::notice::server-dir present, assets folder present=$HAS_ASSETS, sync state file present=$HAS_STATE, entries=$(echo "$AFTER" | tail -n +2 | wc -l)"
           [ "$HAS_ASSETS" -ge 1 ] || { echo "::error::assets folder still missing in server-dir"; exit 1; }
 
-      - name: 📂 Sync Files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # Destination directory on web server root
-          server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
-          protocol: ftps
-          timeout: 120000
-          log-level: standard
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            .files/**
-            *.log
+      - name: Sync via resumable lftp (images first, HTML last)
+        # Incremental: compare by size (--ignore-time), resume partials (--continue).
+        # --only-newer is NOT used because Actions checkout refreshes mtimes, which
+        # would re-upload every file. On Hostinger FIN, bash retries the same mirror
+        # and already-complete files are skipped. HTML is a separate last stage so
+        # pages never go live pointing at missing images. SSL matches the existing
+        # explicit-FTPS secrets (ftp:// + ftp:ssl-force). No --delete.
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR || './' }}
+        run: |
+          set -euo pipefail
+          DIR="${FTP_SERVER_DIR:-./}"; DIR="${DIR%/}"; [ -z "$DIR" ] && DIR="."
+
+          cat > /tmp/lftp-settings <<'EOF'
+          set cmd:fail-exit yes
+          set ftp:ssl-force true
+          set ftp:ssl-protect-data true
+          set ssl:verify-certificate no
+          set ftp:passive-mode yes
+          set net:max-retries 15
+          set net:persist-retries 8
+          set net:reconnect-interval-base 15
+          set net:reconnect-interval-multiplier 1.5
+          set net:reconnect-interval-max 180
+          set net:timeout 90
+          set net:idle 90
+          set xfer:clobber on
+          set mirror:use-pget-n 0
+          EOF
+
+          run_lftp() {
+            local name="$1"
+            local script="$2"
+            local attempt=1
+            local max=25
+            while [ "$attempt" -le "$max" ]; do
+              echo "::notice::lftp ${name}: attempt ${attempt}/${max} at $(date -u +%H:%M:%S)Z"
+              set +e
+              lftp --env-password -u "$FTP_USERNAME" "ftp://$FTP_SERVER" -e "source /tmp/lftp-settings; source ${script}"
+              local rc=$?
+              set -e
+              if [ "$rc" -eq 0 ]; then
+                echo "::notice::lftp ${name}: succeeded on attempt ${attempt}"
+                return 0
+              fi
+              echo "::warning::lftp ${name}: attempt ${attempt} exited ${rc} (connection likely dropped); retrying in 20s"
+              sleep 20
+              attempt=$((attempt+1))
+            done
+            echo "::error::lftp ${name}: failed after ${max} attempts"
+            return 1
+          }
+
+          # Stage 0: .htaccess first so AVIF MIME is in place before more images go up.
+          cat > /tmp/htaccess.lftp <<EOF
+          cd "$DIR"
+          put -O . .htaccess
+          bye
+          EOF
+          run_lftp "htaccess" /tmp/htaccess.lftp
+
+          # Stage 1: everything except HTML, git metadata, and logs.
+          # --ignore-time: skip when remote size already matches (resume after a drop).
+          # --continue: resume a partial last file.
+          # Regex excludes so nested *.html (work/nrkr/index.html) is also skipped.
+          # DIR is expanded by the unquoted header; the command body is quoted.
+          cat > /tmp/mirror-assets.lftp <<EOF
+          cd "$DIR"
+          lcd .
+          EOF
+          cat >> /tmp/mirror-assets.lftp <<'EOF'
+          mirror -R --verbose --ignore-time --continue --parallel=3 --no-perms --no-umask --exclude '(^|/)\.git(/|$)' --exclude '(^|/)\.github(/|$)' --exclude '(^|/)\.gitignore$' --exclude '(^|/)\.gitattributes$' --exclude '(^|/)\.ftp-deploy-sync-state\.json$' --exclude '(^|/)node_modules(/|$)' --exclude '(^|/)\.files(/|$)' --exclude '\.log$' --exclude '\.html$' ./ ./
+          bye
+          EOF
+          run_lftp "assets-and-images" /tmp/mirror-assets.lftp
+
+          # Stage 2: HTML last. Generate explicit put commands so include-glob
+          # cannot miss nested pages. Re-puts are cheap; HTML is small.
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          skip = {'.git', '.github', 'node_modules'}
+          htmls = sorted(
+              p for p in Path('.').rglob('*.html')
+              if not any(part in skip for part in p.parts)
+          )
+          dirs = sorted({p.parent.as_posix() for p in htmls} - {'.'})
+          out = Path('/tmp/html-puts.lftp')
+          body = ['lcd .']
+          for d in dirs:
+              body.append('mkdir -p ' + d)
+          for p in htmls:
+              dest = p.parent.as_posix()
+              body.append('put -O ' + dest + ' ' + p.as_posix())
+          body.append('bye')
+          out.write_text('\n'.join(body) + '\n', encoding='utf-8')
+          print('html files=%d dirs=%d' % (len(htmls), len(dirs)))
+          PY
+          {
+            echo "cd \"$DIR\""
+            cat /tmp/html-puts.lftp
+          } > /tmp/mirror-html.lftp
+          run_lftp "html" /tmp/mirror-html.lftp
+
+          echo "::notice::lftp deploy finished all stages at $(date -u +%H:%M:%S)Z"
