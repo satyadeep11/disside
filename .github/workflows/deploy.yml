@@ -154,7 +154,7 @@ jobs:
           out = Path('/tmp/html-puts.lftp')
           body = ['lcd .']
           for d in dirs:
-              body.append('mkdir -p ' + d)
+              body.append('mkdir -f -p ' + d)
           for p in htmls:
               dest = p.parent.as_posix()
               body.append('put -O ' + dest + ' ' + p.as_posix())
