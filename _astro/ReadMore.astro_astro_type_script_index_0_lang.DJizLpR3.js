@@ -1,1 +1,0 @@
-const n=t=>{const e=t.querySelector(".rm-btn");!e||e.dataset.bound||(e.dataset.bound="1",e.addEventListener("click",()=>{const a=t.classList.toggle("is-open");e.setAttribute("aria-expanded",String(a))}))};document.querySelectorAll("[data-rm]").forEach(n);document.addEventListener("astro:page-load",()=>{document.querySelectorAll("[data-rm]").forEach(n)});

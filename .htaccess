@@ -84,3 +84,15 @@ RewriteRule ^index\.html$ / [R=301,L]
 RewriteRule ^home/?$ / [R=301,L]
 RewriteRule ^(project-type|portfolio-category)/ /work/ [R=301,L]
 ErrorDocument 404 /404.html
+
+# Responsive image formats (AVIF/WebP) ? correct MIME so Hostinger/LiteSpeed serves them properly.
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType image/webp .webp
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+</IfModule>
