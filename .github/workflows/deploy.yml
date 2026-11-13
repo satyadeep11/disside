@@ -61,13 +61,19 @@ jobs:
           echo "::notice::server-dir present, assets folder present=$HAS_ASSETS, sync state file present=$HAS_STATE, entries=$(echo "$AFTER" | tail -n +2 | wc -l)"
           [ "$HAS_ASSETS" -ge 1 ] || { echo "::error::assets folder still missing in server-dir"; exit 1; }
 
-      - name: Sync via resumable lftp (images first, HTML last)
-        # Incremental: compare by size (--ignore-time), resume partials (--continue).
-        # --only-newer is NOT used because Actions checkout refreshes mtimes, which
-        # would re-upload every file. On Hostinger FIN, bash retries the same mirror
-        # and already-complete files are skipped. HTML is a separate last stage so
-        # pages never go live pointing at missing images. SSL matches the existing
-        # explicit-FTPS secrets (ftp:// + ftp:ssl-force). No --delete.
+      - name: Temporary pages-only sync (_astro, HTML, sitemap, robots)
+        # TEMPORARY pages-only mode to finish deploy of 8d7fa7c.
+        # The previous full-site run uploaded images, _opt, video and _astro
+        # but failed before the HTML stage. This workflow uploads ONLY:
+        #   1) the _astro folder (styles/scripts) first
+        #   2) every *.html file
+        #   3) sitemap*.xml and robots.txt
+        # It does NOT walk, compare, or upload _opt, images, video, or any
+        # image/video extensions — so it cannot re-upload those assets.
+        # No --delete. The original full-site workflow is saved as
+        # .github/workflows/deploy-full.yml.disabled and must be restored
+        # (or replaced with a faster incremental deploy) before the next
+        # image or video change.
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -76,6 +82,8 @@ jobs:
         run: |
           set -euo pipefail
           DIR="${FTP_SERVER_DIR:-./}"; DIR="${DIR%/}"; [ -z "$DIR" ] && DIR="."
+
+          echo "::notice::TEMPORARY pages-only deploy: _astro, then HTML, then sitemap/robots. Not comparing or uploading _opt, images, or video."
 
           cat > /tmp/lftp-settings <<'EOF'
           set cmd:fail-exit yes
@@ -117,33 +125,25 @@ jobs:
             return 1
           }
 
-          # Stage 0: .htaccess first so AVIF MIME is in place before more images go up.
-          cat > /tmp/htaccess.lftp <<EOF
-          cd "$DIR"
-          put -O . .htaccess
-          bye
-          EOF
-          run_lftp "htaccess" /tmp/htaccess.lftp
-
-          # Stage 1: everything except HTML, git metadata, and logs.
-          # --ignore-time: skip when remote size already matches (resume after a drop).
-          # --continue: resume a partial last file.
-          # Regex excludes so nested *.html (work/nrkr/index.html) is also skipped.
-          # DIR is expanded by the unquoted header; the command body is quoted.
-          cat > /tmp/mirror-assets.lftp <<EOF
+          # Stage 1: _astro only. Mirror is scoped to this folder so other
+          # assets are never listed or compared. --ignore-time skips already-
+          # uploaded files whose size matches (checkout mtimes are fresh).
+          # --parallel=4. Image/video globs are excluded as a guard.
+          # No --delete.
+          cat > /tmp/mirror-astro.lftp <<EOF
           cd "$DIR"
           lcd .
           EOF
-          cat >> /tmp/mirror-assets.lftp <<'EOF'
-          mirror -R --verbose --ignore-time --continue --parallel=3 --no-perms --no-umask --exclude '(^|/)\.git(/|$)' --exclude '(^|/)\.github(/|$)' --exclude '(^|/)\.gitignore$' --exclude '(^|/)\.gitattributes$' --exclude '(^|/)\.ftp-deploy-sync-state\.json$' --exclude '(^|/)node_modules(/|$)' --exclude '(^|/)\.files(/|$)' --exclude '\.log$' --exclude '\.html$' ./ ./
+          cat >> /tmp/mirror-astro.lftp <<'EOF'
+          mirror -R --verbose --ignore-time --continue --parallel=4 --no-perms --no-umask --exclude-glob '*.png' --exclude-glob '*.jpg' --exclude-glob '*.jpeg' --exclude-glob '*.gif' --exclude-glob '*.webp' --exclude-glob '*.avif' --exclude-glob '*.svg' --exclude-glob '*.ico' --exclude-glob '*.bmp' --exclude-glob '*.mp4' --exclude-glob '*.webm' --exclude-glob '*.mov' --exclude-glob '*.m4v' --exclude-glob '*.mp3' --exclude-glob '*.wav' --exclude-glob '*.ogg' --exclude-glob '*.mkv' --exclude-glob '*.avi' _astro _astro
           bye
           EOF
-          run_lftp "assets-and-images" /tmp/mirror-assets.lftp
+          run_lftp "astro" /tmp/mirror-astro.lftp
 
-          # Stage 2: HTML last. Generate explicit put commands so include-glob
-          # cannot miss nested pages. Re-puts are cheap; HTML is small.
+          # Stage 2: HTML last so pages never point at missing styles.
+          # Explicit put commands: no full-tree mirror, so _opt/images/video
+          # are never compared. Re-puts are cheap; HTML is small.
           python3 - <<'PY'
-          import os
           from pathlib import Path
           skip = {'.git', '.github', 'node_modules'}
           htmls = sorted(
@@ -168,4 +168,23 @@ jobs:
           } > /tmp/mirror-html.lftp
           run_lftp "html" /tmp/mirror-html.lftp
 
-          echo "::notice::lftp deploy finished all stages at $(date -u +%H:%M:%S)Z"
+          # Stage 3: sitemap*.xml and robots.txt at the site root.
+          python3 - <<'PY'
+          from pathlib import Path
+          files = sorted(Path('.').glob('sitemap*.xml'))
+          if Path('robots.txt').is_file():
+              files.append(Path('robots.txt'))
+          body = ['lcd .']
+          for p in files:
+              body.append('put -O . ' + p.as_posix())
+          body.append('bye')
+          Path('/tmp/meta-puts.lftp').write_text('\n'.join(body) + '\n', encoding='utf-8')
+          print('meta files=%d: %s' % (len(files), ' '.join(p.name for p in files)))
+          PY
+          {
+            echo "cd \"$DIR\""
+            cat /tmp/meta-puts.lftp
+          } > /tmp/mirror-meta.lftp
+          run_lftp "sitemap-robots" /tmp/mirror-meta.lftp
+
+          echo "::notice::pages-only lftp deploy finished all stages at $(date -u +%H:%M:%S)Z"
