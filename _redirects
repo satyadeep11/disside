@@ -166,3 +166,5 @@
 /wp-content/* /work/ 301
 /wp-admin/* / 301
 /feed/ / 301
+/contact-v2/ /contact/ 301
+/contact-v2 /contact/ 301
