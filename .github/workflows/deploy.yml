@@ -152,9 +152,10 @@ jobs:
           )
           dirs = sorted({p.parent.as_posix() for p in htmls} - {'.'})
           out = Path('/tmp/html-puts.lftp')
-          body = ['lcd .']
+          body = ['set cmd:fail-exit no', 'lcd .']
           for d in dirs:
-              body.append('mkdir -f -p ' + d)
+              body.append('mkdir -p ' + d)
+          body.append('set cmd:fail-exit yes')
           for p in htmls:
               dest = p.parent.as_posix()
               body.append('put -O ' + dest + ' ' + p.as_posix())
