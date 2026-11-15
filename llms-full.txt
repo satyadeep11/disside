@@ -1,6 +1,6 @@
 # Disside: full reference for AI assistants
 
-Disside is a branding and marketing agency in Hyderabad, India, founded in 2012 by Satyajeet Singh.
+Disside Design Studio (Disside) is an independent branding and creative agency in Hyderabad, India, founded in 2012 by Satyajeet Singh.
 Studio: Jubilee Hills, Hyderabad, Telangana 500033, India. Phone/WhatsApp: +91 90001 39572. Email: hello@disside.com. Hours: Monday – Friday, 9:30 AM – 7:00 PM IST.
 Website: https://disside.com/
 
@@ -44,7 +44,7 @@ Q: Is brand identity the same as a logo?
 A: No. A logo is one part of a brand identity. The identity is the full visual system around it, so customers recognise you even when the logo is small or missing, for example from your colours, fonts or photo style.
 
 Q: How long does a brand identity project take?
-A: A brand identity and visual system usually takes 4 to 8 weeks, depending on how many touchpoints we design. A simple logo refresh can be faster; a full system with packaging or a website takes longer.
+A: A brand identity and visual system usually takes 4 to 6 weeks, depending on how many touchpoints we design. A simple logo refresh can be faster; a full system with packaging or a website takes longer.
 
 Q: Do I get the source files?
 A: Yes. You get print-ready and web-ready files (AI, PDF, SVG and PNG) for the logo and all designed items, plus the guidelines document, so you can work with any printer or developer.
@@ -69,7 +69,7 @@ Q: What packaging formats do you design?
 A: We design labels, mono cartons, rigid gift boxes, pouches, tins, jars, bottles, e-commerce mailers and carry bags. We also design the range so new sizes and flavours fit in easily.
 
 Q: How long does packaging design take?
-A: A single pack usually takes 3 to 5 weeks from brief to print-ready files. A full range with many SKUs takes 6 to 12 weeks, depending on the number of variants and printing tests.
+A: A packaging project usually takes 4 to 8 weeks from brief to print-ready files. A large range with many SKUs can take longer, depending on the number of variants and printing tests.
 
 ## Digital Experiences
 URL: https://disside.com/pages/digital-scrollytelling-websites
@@ -82,7 +82,7 @@ We design and develop purposeful digital experiences that bring brand identity a
 Deliverables: Website strategy, sitemap and content planning; User experience and interface design; Mobile-first website design; Interactive and scrollytelling experiences; Website development and CMS setup; Website copy and content integration; Page speed and on-page SEO; Schema, sitemap and analytics setup; Enquiry, call and WhatsApp tracking.
 
 Q: How long does it take to design and build a website?
-A: A company website usually takes 4 to 8 weeks: about 2 weeks for structure and design, then 2 to 4 weeks for building, content and testing. Bigger sites with many pages or an online store take longer.
+A: A company website usually takes 6 to 10 weeks: about 2 to 3 weeks for structure and design, then 4 to 7 weeks for building, content and testing. Bigger sites with many pages or an online store take longer.
 
 Q: Will my website be SEO friendly?
 A: Yes. We set up page titles, meta descriptions, headings, image alt text, a sitemap, schema markup and fast loading on every site, and connect Google Search Console and Analytics.
@@ -110,9 +110,9 @@ Q: Do you plan media or only design?
 A: We focus on the idea and design. We work with your media agency or our media partners for buying hoardings, print and digital space, and deliver files in the exact sizes each vendor needs.
 
 Q: How fast can you deliver a campaign?
-A: A focused campaign with a key visual and core adaptations can be ready in 2 to 4 weeks. Bigger city launches with many formats usually take 6 to 8 weeks.
+A: A focused campaign with a key visual and core adaptations usually takes 3 to 6 weeks. Bigger city launches with many formats or a shoot take longer.
 
-## Digital Marketing & SEO
+## Social Media & Digital Marketing
 URL: https://disside.com/pages/social-media-marketing-agency-hyderabad
 Being present online is not enough. Brands need consistent communication, relevant content and targeted campaigns that reach the right people and encourage action.
 
@@ -151,7 +151,7 @@ Q: Can signage follow local rules in Hyderabad?
 A: Yes. We plan sizes and placement with your landlord or mall rules and GHMC guidelines in mind, and can add Telugu, Hindi or Urdu where needed.
 
 Q: How long does a signage project take?
-A: Design usually takes 2 to 3 weeks. Fabrication and installation add another 2 to 4 weeks, depending on materials, lighting and the number of locations.
+A: A signage project usually takes 4 to 8 weeks: 2 to 3 weeks for design, then fabrication and installation, depending on materials, lighting and the number of locations.
 
 ## Motion & Film
 URL: https://disside.com/services/motion-film/
