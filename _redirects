@@ -161,10 +161,6 @@
 /industries/food-beverage /pages/restaurant-branding-agency-hyderabad 301
 /industries/architecture-interiors /pages/real-estate-architecture-branding 301
 /services/digital-marketing /pages/social-media-marketing-agency-hyderabad 301
-/project-type/* /work/ 301
-/portfolio-category/* /work/ 301
-/wp-content/* /work/ 301
-/wp-admin/* / 301
 /feed/ / 301
 /contact-v2/ /contact/ 301
 /contact-v2 /contact/ 301
@@ -295,3 +291,8 @@
 /work/vestito /work/vestito/ 301
 /work/vkrafts /work/vkrafts/ 301
 /work/vonlane /work/vonlane/ 301
+# Dynamic rules (splats) last
+/project-type/* /work/ 301
+/portfolio-category/* /work/ 301
+/wp-content/* /work/ 301
+/wp-admin/* / 301
