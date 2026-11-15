@@ -6,7 +6,7 @@ Website: https://disside.com/
 
 # Services
 ## Brand Strategy
-URL: https://disside.com/pages/brand-strategy-agency-hyderabad.html
+URL: https://disside.com/pages/brand-strategy-agency-hyderabad
 Without a clear position, brands risk looking and sounding like everyone else. A strong strategy defines what makes a business different, who it serves and why customers should choose it.
 
 Without a clear position, brands risk looking and sounding like everyone else. A strong strategy defines what makes a business different, who it serves and why customers should choose it.
@@ -28,7 +28,7 @@ Q: How long does a brand strategy project take?
 A: Most brand strategy projects take 3 to 5 weeks. That includes research, workshops with your team and a written strategy document. When strategy and visual identity are done together, the full project usually takes 6 to 10 weeks.
 
 ## Brand Identity & Visual System
-URL: https://disside.com/pages/visual-identity-design.html
+URL: https://disside.com/pages/visual-identity-design
 A brand needs to look and feel consistent wherever people encounter it. A logo alone cannot achieve that; it needs a complete visual system that brings every application together.
 
 A brand needs to look and feel consistent wherever people encounter it. A logo alone cannot achieve that; it needs a complete visual system that brings every application together.
@@ -50,7 +50,7 @@ Q: Do I get the source files?
 A: Yes. You get print-ready and web-ready files (AI, PDF, SVG and PNG) for the logo and all designed items, plus the guidelines document, so you can work with any printer or developer.
 
 ## Packaging Design
-URL: https://disside.com/pages/packaging-design-agency-hyderabad.html
+URL: https://disside.com/pages/packaging-design-agency-hyderabad
 Packaging is often the first physical interaction customers have with a product. It needs to attract attention, communicate value and work practically on the shelf, in transit and in the customer's hands.
 
 Packaging is often the first physical interaction customers have with a product. It needs to attract attention, communicate value and work practically on the shelf, in transit and in the customer's hands.
@@ -72,7 +72,7 @@ Q: How long does packaging design take?
 A: A single pack usually takes 3 to 5 weeks from brief to print-ready files. A full range with many SKUs takes 6 to 12 weeks, depending on the number of variants and printing tests.
 
 ## Digital Experiences
-URL: https://disside.com/pages/digital-scrollytelling-websites.html
+URL: https://disside.com/pages/digital-scrollytelling-websites
 A website is often the first serious interaction someone has with a brand. It needs to communicate clearly, look distinctive, work smoothly and make it easy for visitors to take the next step.
 
 A website is often the first serious interaction someone has with a brand. It needs to communicate clearly, look distinctive, work smoothly and make it easy for visitors to take the next step.
@@ -113,7 +113,7 @@ Q: How fast can you deliver a campaign?
 A: A focused campaign with a key visual and core adaptations can be ready in 2 to 4 weeks. Bigger city launches with many formats usually take 6 to 8 weeks.
 
 ## Digital Marketing & SEO
-URL: https://disside.com/pages/social-media-marketing-agency-hyderabad.html
+URL: https://disside.com/pages/social-media-marketing-agency-hyderabad
 Being present online is not enough. Brands need consistent communication, relevant content and targeted campaigns that reach the right people and encourage action.
 
 Being present online is not enough. Brands need consistent communication, relevant content and targeted campaigns that reach the right people and encourage action.
@@ -173,7 +173,7 @@ Q: How long does a brand film or reel take?
 A: A logo animation or set of reel templates takes 1 to 2 weeks. A short brand or campaign film with a shoot usually takes 3 to 6 weeks from script to final edit.
 
 ## Rebranding
-URL: https://disside.com/pages/corporate-rebranding.html
+URL: https://disside.com/pages/corporate-rebranding
 As businesses grow, their brands can stop reflecting who they are or where they want to go. Rebranding helps close that gap while retaining the recognition and trust they've already built.
 
 As businesses grow, their brands can stop reflecting who they are or where they want to go. Rebranding helps close that gap while retaining the recognition and trust they've already built.
@@ -193,7 +193,7 @@ A: The design part of a rebrand usually takes 6 to 10 weeks. The rollout across 
 
 # Industries
 ## Restaurants & Cafés
-URL: https://disside.com/pages/restaurant-branding-agency-hyderabad.html
+URL: https://disside.com/pages/restaurant-branding-agency-hyderabad
 Running a restaurant is about more than good food. In a competitive market, the brand, atmosphere and overall experience play a big part in attracting diners and bringing them back.
 
 
@@ -229,7 +229,7 @@ Q: Do you do spa and wellness branding?
 A: Yes. Spa branding needs to feel calm and premium. We design the identity, treatment menus, interiors graphics, packaging for retail products and the website.
 
 ## Technology & SaaS
-URL: https://disside.com/pages/tech-saas-startup-branding.html
+URL: https://disside.com/pages/tech-saas-startup-branding
 Technology products can be difficult to explain, especially when competing in crowded markets. A clear brand makes complex offerings easier to understand and gives customers a reason to trust them.
 
 
@@ -250,7 +250,7 @@ Q: What does SaaS branding include?
 A: SaaS branding covers positioning and messaging, a visual identity that works in the product UI, a marketing website built for sign-ups and demos, and launch campaigns.
 
 ## D2C & Lifestyle
-URL: https://disside.com/pages/d2c-fashion-luxury-branding.html
+URL: https://disside.com/pages/d2c-fashion-luxury-branding
 In a crowded online marketplace, products need more than good design to stand out. They need a distinctive identity and a compelling reason for customers to choose them.
 
 
@@ -316,7 +316,7 @@ Q: Can you brand a media company?
 A: Yes. Media company branding covers the master brand, channel or show sub-brands, on-screen graphics and marketing so audiences recognise you everywhere.
 
 ## Real Estate
-URL: https://disside.com/pages/real-estate-architecture-branding.html
+URL: https://disside.com/pages/real-estate-architecture-branding
 A property is one of the biggest purchases people make. In a crowded market, projects need more than attractive visuals — they need a clear identity, a compelling reason to stand apart and the credibility to earn buyer trust.
 
 
@@ -403,7 +403,7 @@ Q: What is manufacturing company branding?
 A: It is the corporate branding of a manufacturer: identity, catalogues, spec sheets, trade show material and a B2B website that show your capability to large buyers.
 
 ## FMCG & Food Brands
-URL: https://disside.com/pages/fmcg-food-packaging-branding.html
+URL: https://disside.com/pages/fmcg-food-packaging-branding
 Products compete for attention long before customers get to try them. Packaging and brand communication need to stand out on the shelf, communicate value quickly and create recognition that encourages repeat purchases.
 
 
@@ -475,7 +475,7 @@ Q: Are you a fashion branding agency?
 A: Yes. We work across textile branding for mills and exporters and apparel branding for fashion labels: identity, labels and tags, lookbooks and online stores.
 
 ## Architecture & Interiors
-URL: https://disside.com/industries/architecture-interiors/
+URL: https://disside.com/pages/real-estate-architecture-branding
 Branding for architecture and interior firms is designing a studio’s logo, stationery, project boards, brochures and website so its own brand shows the same design quality as its buildings.
 
 Architects and interior designers win work through their portfolio. Their brand has to step back and let the projects shine, while still feeling distinct and confident.
