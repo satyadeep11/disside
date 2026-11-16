@@ -51,13 +51,13 @@ A: Yes. You get print-ready and web-ready files (AI, PDF, SVG and PNG) for the l
 
 ## Packaging Design
 URL: https://disside.com/services/packaging-design/
-Packaging is often the first physical interaction customers have with a product. It needs to attract attention, communicate value and work practically on the shelf, in transit and in the customer's hands.
+Packaging is often the first physical interaction customers have with a product. It has to attract attention, explain the product and work practically on the shelf, in transit and in the customer's hands.
 
-Packaging is often the first physical interaction customers have with a product. It needs to attract attention, communicate value and work practically on the shelf, in transit and in the customer's hands.
+Packaging is often the first physical interaction customers have with a product. It has to attract attention, explain the product and work practically on the shelf, in transit and in the customer's hands.
 
-We create packaging systems that bring brand identity, product information and shelf appeal together, while ensuring the artwork is ready for production.
+We design the structure, the labels and graphics, the print files and the unboxing, for products in every category, and check proofs so the printed pack matches the design.
 
-Deliverables: Packaging strategy and product range structure; Labels, boxes, pouches, tins and cartons; Packaging identity and visual design; Illustration and photography direction; Dielines and print-ready artwork; FSSAI and mandatory legal information layout, where applicable; Printer coordination and print proof checks.
+Deliverables: Format and structure: cartons, rigid boxes, tins, pouches, bottles and mailers; Labels, graphics and range structure; Illustration and photography direction; Unboxing: inserts, tissue wraps and mailers; Dielines and print-ready artwork; Mandatory information layout, where applicable; Printer coordination and print proof checks.
 
 Q: How does packaging design help sales?
 A: Clear packaging helps shoppers find your product faster and understand it in a few seconds. Strong colour, a simple layout and an easy-to-read product name make the pack stand out on a crowded shelf and look trustworthy online.
@@ -404,7 +404,7 @@ A: It is the corporate branding of a manufacturer: identity, catalogues, spec sh
 
 ## FMCG & Food Brands
 URL: https://disside.com/industries/fmcg-food/
-Products compete for attention long before customers get to try them. Packaging and brand communication need to stand out on the shelf, communicate value quickly and create recognition that encourages repeat purchases.
+Food and FMCG products compete for attention long before anyone tastes them. The brand has to be clearly positioned, the range easy to navigate and the product recognisable on a shelf and on a phone.
 
 
 
@@ -417,8 +417,8 @@ A: Yes. We keep the colours, shapes or logo parts your shoppers recognise and im
 Q: Do you handle FSSAI and legal text on packs?
 A: Yes. We lay out FSSAI, nutrition, MRP and legal text as per your compliance team’s inputs, and check them on the final print files.
 
-Q: Do you do beverage branding and product label design?
-A: Yes. We design beverage brands, bottle and can labels, cartons and product label design for food and drink ranges, with print-ready files for your printer.
+Q: Do you build beverage brands as well as food brands?
+A: Yes. We build drink brands as well as food ranges: positioning, identity, range architecture and the labels and packs that follow.
 
 ## Education
 URL: https://disside.com/industries/education/
